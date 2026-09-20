@@ -567,3 +567,40 @@ body {
   }
 }
 
+/* ================= MARQUEE TECH TICKER ================= */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track,
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.ticker-track:hover,
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ================= INTERACTIVE CASE SHOWCASE ================= */
+.case-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.15);
+}
+
+.glow-pill {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+

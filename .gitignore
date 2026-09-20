@@ -4,3 +4,7 @@ leads.json
 node_modules/
 .vercel
 *.log
+*.xlsx
+*.csv
+gen_*.py
+*.txt
