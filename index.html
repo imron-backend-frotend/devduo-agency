@@ -97,6 +97,7 @@
         <a href="#features" class="nav-link">Стек</a>
         <a href="#cases" class="nav-link text-sky-400 font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Кейсы</a>
         <a href="#comparison" class="nav-link">Сравнение</a>
+        <a href="#guarantees" class="nav-link text-emerald-400 font-semibold flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Гарантии</a>
         <a href="#pricing" class="nav-link">Тарифы</a>
         <a href="#calculator" class="nav-link text-sky-300 font-semibold flex items-center gap-1.5"><i data-lucide="calculator" class="w-3 h-3 text-sky-400"></i> Смета</a>
         <a href="#about" class="nav-link">О нас</a>
@@ -889,6 +890,212 @@ export async function bootstrap(app: FastifyInstance) {
           </button>
         </div>
 
+      </div>
+
+  <!-- ================= CLIENT TRUST & GUARANTEES SECTION ================= -->
+  <section id="guarantees" class="py-24 md:py-32 relative border-t border-white/[0.06] bg-gradient-to-b from-[#030304] via-[#07090f] to-[#030304]">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>Безопасность заказчика и прозрачность</span>
+        </div>
+        
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+          Как мы защищаем ваши <span class="text-gradient-sky">деньги, код и время</span>
+        </h2>
+        
+        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+          Мы понимаем, как рискованно нанимать незнакомых разработчиков в сети. Поэтому мы полностью устранили риски заказчика: официальный NDA до звонка, поэтапная оплата за результат и 100% передача кода в ваш личный GitHub.
+        </p>
+      </div>
+
+      <!-- 5 Ironclad Guarantees Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+
+        <!-- Guarantee 1: Milestone Escrow -->
+        <div class="glass-card rounded-3xl p-7 border border-white/10 flex flex-col justify-between hover:border-emerald-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="lock" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">1. Поэтапная оплата (Milestones)</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Никаких 100% предоплат в пустоту. Бюджет делится на 3–4 спринта. Вы переводите оплату за этап <strong>только после того</strong>, как лично проверили рабочую сборку на тестовом сервере (Staging).
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-[11px] font-mono text-emerald-400">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Stripe / Wise / Escrow / Расчетный счет</span>
+          </div>
+        </div>
+
+        <!-- Guarantee 2: Mutual NDA -->
+        <div class="glass-card rounded-3xl p-7 border border-white/10 flex flex-col justify-between hover:border-sky-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="file-text" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">2. Официальный NDA в день звонка</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Ваша идея, логика алгоритмов и бизнес-модель защищены законом. Мы подписываем официальное двустороннее соглашение о неразглашении (Mutual NDA) за 1 час до обсуждения конфиденциальных деталей.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-[11px] font-mono text-sky-400">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Международный стандарт соглашения</span>
+          </div>
+        </div>
+
+        <!-- Guarantee 3: 100% IP & Source Code Ownership -->
+        <div class="glass-card rounded-3xl p-7 border border-white/10 flex flex-col justify-between hover:border-purple-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="git-branch" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">3. 100% владение кодом с 1-го дня</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Разработка ведется прямо в вашем приватном репозитории GitHub/GitLab. Каждый коммит пушится в ваш аккаунт. Вы единственный владелец всей интеллектуальной собственности без задержек и заложников кода.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-[11px] font-mono text-purple-400">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Zero Vendor Lock-in (Полная свобода)</span>
+          </div>
+        </div>
+
+        <!-- Guarantee 4: Fixed Price & Hard Deadline SLA -->
+        <div class="glass-card rounded-3xl p-7 border border-white/10 flex flex-col justify-between hover:border-amber-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="calendar-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">4. Фиксированная цена и жесткий дедлайн</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Мы ненавидим сюрпризы в счетах так же, как и вы. Объем работ, цена и дата релиза жестко фиксируются в договоре. Если задержка происходит по нашей вине — мы несем финансовую ответственность.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-[11px] font-mono text-amber-400">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>SLA дедлайн зафиксирован в контракте</span>
+          </div>
+        </div>
+
+        <!-- Guarantee 5: 30-Day Post-Launch Warranty -->
+        <div class="glass-card rounded-3xl p-7 border border-white/10 flex flex-col justify-between hover:border-cyan-400/40 transition-all group lg:col-span-2">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform flex-shrink-0">
+                <i data-lucide="wrench" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">5. 30 дней бесплатной гарантии и баг-фикса</h3>
+                <span class="text-[11px] font-mono text-cyan-400">Включено в каждый договор</span>
+              </div>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-mono font-bold">Гарантия 0 ₽</span>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Мы не исчезаем после нажатия кнопки «Deploy». В течение месяца после запуска мы бесплатно устраняем любые выявленные ошибки, помогаем наладить серверную инфраструктуру, обучаем вашу команду и передаем понятную документацию по архитектуре.
+          </p>
+          <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap items-center gap-4 text-[11px] font-mono text-zinc-400">
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Мониторинг логов</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Документация API</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Инструкции для вашей команды</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Transparent Protocol Timeline (4 Steps) -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-[#090d16] border border-white/10 relative overflow-hidden mb-16 shadow-2xl">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-2xl mb-10">
+          <span class="text-xs font-mono text-sky-400 tracking-wider uppercase font-bold">Прозрачный регламент</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">Как мы с вами работаем: день за днем</h3>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-2">
+            Никакой неопределенности. Вы всегда точно знаете, что происходит с вашим проектом прямо сейчас.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Step 1 -->
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 relative">
+            <div class="text-3xl font-extrabold font-mono text-white/20 mb-3">01</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Разбор задачи & NDA</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              15-минутный созвон в Google Meet. Подписываем взаимный NDA, уточняем требования, выдаем точную смету без «воды».
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-sky-300">День 1</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 relative">
+            <div class="text-3xl font-extrabold font-mono text-white/20 mb-3">02</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Чат & Архитектура</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Создаем закрытый канал в Telegram/Slack. Создаем репозиторий в вашем GitHub. Согласовываем схему БД и экраны.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-sky-300">Дни 2–4</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 relative">
+            <div class="text-3xl font-extrabold font-mono text-white/20 mb-3">03</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Еженедельные демо</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Каждую пятницу разворачиваем живую тестовую сборку (Staging). Вы кликаете реальный код со смартфона и ноутбука.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-sky-300">Каждую неделю</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 relative">
+            <div class="text-3xl font-extrabold font-mono text-white/20 mb-3">04</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Релиз & Гарантия</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Деплой на ваш домен и сервера, передача всех паролей и ключей. Включается 30 дней бесплатной гарантии.
+            </p>
+            <div class="mt-3 text-[10px] font-mono text-emerald-400 font-bold">Успешный запуск</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Verified Engineers Meet Callout Card -->
+      <div class="p-8 rounded-3xl bg-gradient-to-r from-sky-950/40 via-blue-950/20 to-transparent border border-sky-400/30 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="flex items-center gap-5">
+          <div class="relative flex -space-x-3 overflow-hidden p-1">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 border-2 border-black flex items-center justify-center text-base font-extrabold text-white shadow-xl">
+              I
+            </div>
+            <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-zinc-200 to-zinc-400 border-2 border-black flex items-center justify-center text-base font-extrabold text-black shadow-xl">
+              M
+            </div>
+            <span class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-black animate-pulse"></span>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="text-lg font-bold text-white">Познакомьтесь с нами до подписания договора</h4>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-[10px] font-mono text-emerald-400 font-bold">100% Онлайн</span>
+            </div>
+            <p class="text-xs text-zinc-300 max-w-xl mt-1 leading-relaxed">
+              Мы не анонимы из интернета и не перекупщики. Мы лично выйдем на 15-минутный видеозвонок в Google Meet с включенной камерой и демонстрацией экрана прямо сегодня.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 w-full md:w-auto flex-shrink-0">
+          <button class="open-contact-modal btn-primary w-full md:w-auto py-3.5 px-6 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 shadow-xl shadow-sky-500/20 cursor-pointer">
+            <i data-lucide="video" class="w-4 h-4"></i>
+            <span>Назначить видеозвонок</span>
+          </button>
+        </div>
       </div>
 
     </div>
