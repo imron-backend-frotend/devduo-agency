@@ -319,7 +319,7 @@ function initModal() {
       }
 
       try {
-        await fetch('/api/lead', {
+        const res = await fetch('/api/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -329,10 +329,40 @@ function initModal() {
           })
         });
 
-        showToast('⚡ Заявка принята и сохранена! Мы свяжемся с вами в течение 15 минут.');
+        if (!res.ok) {
+          throw new Error('Static host API fallback');
+        }
+
+        const isRu = !window.location.pathname.includes('/en');
+        showToast(isRu ? '⚡ Заявка принята и сохранена! Мы свяжемся с вами в течение 15 минут.' : '⚡ Inquiry submitted! We will contact you within 15–30 minutes.');
         if (typeof updateLeadsBadge === 'function') updateLeadsBadge();
       } catch (err) {
-        showToast('⚡ Заявка принята!');
+        // Fallback for static hosting (e.g. GitHub Pages)
+        try {
+          const leads = JSON.parse(localStorage.getItem('devduo_leads') || '[]');
+          leads.unshift({
+            timestamp: new Date().toISOString(),
+            contact: contactInput,
+            project: projectInput,
+            calc_summary: `${calcPrice} (${calcTime})`
+          });
+          localStorage.setItem('devduo_leads', JSON.stringify(leads));
+        } catch (e) {}
+
+        const isRu = !window.location.pathname.includes('/en');
+        const toastMsg = isRu 
+          ? '⚡ Заявка принята! Перенаправляем в диалог с инженером...' 
+          : '⚡ Inquiry received! Opening engineer chat...';
+        showToast(toastMsg);
+
+        if (typeof updateLeadsBadge === 'function') updateLeadsBadge();
+
+        setTimeout(() => {
+          const text = isRu
+            ? `Здравствуйте! Заявка с сайта DEVDUO:\nКонтакт: ${contactInput}\nЗадача: ${projectInput || 'Обсуждение проекта'}\nСмета: ${calcPrice || 'Индивидуально'}`
+            : `Hello! Inquiry from DEVDUO website:\nContact: ${contactInput}\nProject: ${projectInput || 'Discuss new project'}\nEstimate: ${calcPrice || 'Custom'}`;
+          window.open(`https://t.me/rolldurov?text=${encodeURIComponent(text)}`, '_blank');
+        }, 1100);
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -495,11 +525,24 @@ async function fetchLeads() {
         return [];
       }
     }
-    if (!res.ok) return [];
+    if (!res.ok) {
+      const local = JSON.parse(localStorage.getItem('devduo_leads') || '[]');
+      return local;
+    }
     const data = await res.json();
-    return data.leads || [];
+    const serverLeads = data.leads || [];
+    const local = JSON.parse(localStorage.getItem('devduo_leads') || '[]');
+    // Combine unique by timestamp
+    const all = [...serverLeads];
+    local.forEach(loc => {
+      if (!all.some(s => s.timestamp === loc.timestamp && s.contact === loc.contact)) {
+        all.push(loc);
+      }
+    });
+    return all;
   } catch (err) {
-    return [];
+    const local = JSON.parse(localStorage.getItem('devduo_leads') || '[]');
+    return local;
   }
 }
 

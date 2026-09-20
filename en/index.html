@@ -1321,25 +1321,20 @@
         </p>
       </div>
 
-      <form id="contact-form" class="space-y-4">
+      <form id="modal-contact-form" class="space-y-4">
         <div>
-          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Your Name / Company</label>
-          <input type="text" name="name" required placeholder="e.g. Alex (Apex Studio)" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/40">
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Contact (Telegram, WhatsApp, or Email)</label>
+          <input type="text" id="modal-contact-input" required maxlength="100" autocomplete="off" placeholder="@username, alex@company.com, or +1 234 567 890" class="w-full bg-black/70 border border-white/15 rounded-xl px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white/40">
         </div>
 
         <div>
-          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Contact (Telegram, Email, or WhatsApp)</label>
-          <input type="text" name="contact" required placeholder="@username or alex@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/40">
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Project Overview & Goals</label>
+          <textarea id="modal-project-input" rows="3" maxlength="2000" placeholder="Need an MVP, high-load backend, AI agent integration, or full redesign..." class="w-full bg-black/70 border border-white/15 rounded-xl px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white/40"></textarea>
         </div>
 
-        <div>
-          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Project Overview</label>
-          <textarea name="message" rows="3" placeholder="Briefly describe what you're building (stack, goals, target deadline)..." class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/40"></textarea>
-        </div>
-
-        <button type="submit" class="w-full py-4 rounded-xl btn-primary text-xs font-bold tracking-wide flex items-center justify-center gap-2">
+        <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
           <span>Send Inquiry to Engineers</span>
-          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
       </form>
 
