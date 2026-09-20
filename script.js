@@ -147,21 +147,27 @@ function initCalculator() {
     let basePrice = parseInt(projectType.value, 10);
     let scopeMult = parseFloat(projectScope.value);
     let urgencyMult = parseFloat(projectUrgency.value);
+    const isEn = document.documentElement.lang === 'en';
 
     let total = Math.round(basePrice * scopeMult * urgencyMult);
     let weeks = 2;
 
-    if (projectType.value === "39000") weeks = 2;
-    else if (projectType.value === "75000") weeks = 4;
-    else if (projectType.value === "55000") weeks = 3;
-    else if (projectType.value === "25000") weeks = 1;
+    if (basePrice >= 70000 || basePrice === 1250) weeks = 4;
+    else if (basePrice >= 50000 || basePrice === 950) weeks = 3;
+    else if (basePrice >= 35000 || basePrice === 490) weeks = 2;
+    else if (basePrice < 35000 || basePrice === 390) weeks = 1;
     else weeks = 2;
 
     if (scopeMult > 1.2) weeks += 1;
     if (urgencyMult > 1.1) weeks = Math.max(1, Math.round(weeks * 0.7));
 
-    priceDisplay.textContent = `от ${total.toLocaleString('ru-RU')} ₽`;
-    timeDisplay.textContent = `${weeks}–${weeks + 1} нед.`;
+    if (isEn) {
+      priceDisplay.textContent = `from $${total.toLocaleString('en-US')}`;
+      timeDisplay.textContent = `Timeline: ${weeks}–${weeks + 1} wks`;
+    } else {
+      priceDisplay.textContent = `от ${total.toLocaleString('ru-RU')} ₽`;
+      timeDisplay.textContent = `Срок: ${weeks}–${weeks + 1} нед.`;
+    }
   }
 
   projectType.addEventListener('change', calculate);

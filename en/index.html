@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEVDUO — Full-Stack Engineering Studio (2 Senior Developers)</title>
+  <meta name="description" content="Custom high-performance web applications, mobile platforms, and AI integrations built by two senior engineers with agency velocity. Zero middlemen, direct access.">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#030304">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../favicon.svg">
+
+  <!-- OpenGraph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imron-backend-frotend.github.io/devduo-agency/en/">
+  <meta property="og:title" content="DEVDUO — Senior Engineering Studio (Full-Stack & Systems)">
+  <meta property="og:description" content="Custom web platforms, mobile apps, and AI integrations. Two senior engineers with agency speed. Contact directly on Telegram @rolldurov.">
+  <meta property="og:image" content="../assets/hero-laptop.jpg">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DEVDUO — Senior Engineering Studio">
+  <meta name="twitter:description" content="Turnkey software development by two experienced senior engineers. Zero bureaucracy.">
+  <meta name="twitter:image" content="../assets/hero-laptop.jpg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#030304',
+              surface: '#0d0d12',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-[#030304] text-zinc-100 selection:bg-white selection:text-black min-h-screen relative overflow-x-hidden">
+
+  <!-- Ambient Light Effects -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-white/[0.04] rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="fixed top-[40%] right-[-10%] w-[600px] h-[600px] bg-sky-500/[0.03] rounded-full blur-[160px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-zinc-400/[0.03] rounded-full blur-[160px] pointer-events-none -z-10"></div>
+
+  <!-- Background Grid Pattern -->
+  <div class="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-20"></div>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header id="navbar-header" class="sticky top-0 z-40 w-full transition-all duration-300">
+    <!-- Neon Scroll Progress Indicator -->
+    <div id="scroll-progress-bar"></div>
+
+    <div id="navbar-container" class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between transition-all duration-400">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group logo-box">
+        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white via-zinc-300 to-zinc-600 p-[1px] shadow-lg shadow-white/5 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-[#09090d] rounded-[11px] flex items-center justify-center">
+            <span class="logo-symbol font-mono font-black text-lg text-white transition-transform duration-300">D²</span>
+          </div>
+          <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold tracking-wider text-base text-white group-hover:text-chrome transition-colors">DEVDUO</span>
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+            </span>
+          </div>
+          <span class="text-[10px] font-mono tracking-widest text-zinc-400 uppercase -mt-1">Engineering Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav id="nav-menu" class="hidden md:flex items-center p-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl relative">
+        <div id="nav-indicator"></div>
+        <a href="#features" class="nav-link">Stack & Capabilities</a>
+        <a href="#achievements" class="nav-link">Track Record</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#calculator" class="nav-link text-sky-300 font-semibold flex items-center gap-1.5"><i data-lucide="calculator" class="w-3 h-3 text-sky-400"></i> Estimate (PDF)</a>
+        <a href="#about" class="nav-link">The Duo</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Right Action CTAs & Language Switcher -->
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher -->
+        <div class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono">
+          <a href="../index.html" class="text-zinc-400 hover:text-white px-1.5 py-0.5 rounded transition-colors" title="Русская версия">RU</a>
+          <span class="text-zinc-600 text-[10px]">|</span>
+          <span class="text-white font-bold bg-white/10 px-1.5 py-0.5 rounded">EN</span>
+        </div>
+
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-all py-2.5 px-4 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/5">
+          <i data-lucide="send" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>@rolldurov</span>
+        </a>
+        <button class="open-contact-modal btn-shimmer-cta px-5 py-2.5 rounded-full text-xs font-bold tracking-wide flex items-center gap-2 group cursor-pointer shadow-lg shadow-white/10">
+          <span>Book Discovery</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-8 text-left z-10">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full badge-pill text-xs font-medium text-zinc-300">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="font-mono text-[11px] text-zinc-300 tracking-wide uppercase">Open for 2 projects this quarter</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
+            Ship digital products <br class="hidden sm:block">
+            <span class="text-chrome">at agency speed.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl font-normal leading-relaxed">
+            We are a tight engineering duo of two senior developers. We architect, build, and deploy high-load web platforms, mobile apps, and custom AI systems end-to-end. Zero management bloat, direct engineer-to-client collaboration.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button class="open-contact-modal btn-primary px-8 py-4 rounded-full text-sm font-bold flex items-center gap-3">
+              <span>Start a Project</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <a href="#calculator" class="px-6 py-4 rounded-full text-sm font-semibold flex items-center gap-2.5 bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 hover:text-white border border-sky-400/35 hover:border-sky-400 transition-all shadow-lg shadow-sky-500/10">
+              <i data-lucide="file-down" class="w-4 h-4 text-sky-400"></i>
+              <span>Instant Quote in PDF ↓</span>
+            </a>
+            <a href="#features" class="btn-secondary px-6 py-4 rounded-full text-sm font-semibold flex items-center gap-2">
+              <i data-lucide="terminal" class="w-4 h-4 text-zinc-400"></i>
+              <span>Stack & Demos</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics under buttons -->
+          <div class="pt-6 border-t border-white/[0.08] grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">100%</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Senior Engineers</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">3.5x</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Faster Time to MVP</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">0%</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Middlemen Overhead</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual: 3D Laptop with Interactive Terminal -->
+        <div class="lg:col-span-5 relative">
+          
+          <div class="relative w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden glass-card p-4 border border-white/20 shadow-2xl flex flex-col justify-between">
+            
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-4 border border-white/10 group">
+              <img src="../assets/hero-laptop.jpg" alt="DEVDUO Engineering Workstation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-zinc-300">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Edge Cluster Active</span>
+                <span class="text-zinc-400">Latency: 14ms</span>
+              </div>
+            </div>
+
+            <!-- Terminal Output Box -->
+            <div class="bg-[#050508] rounded-xl p-4 border border-white/10 font-mono text-xs text-zinc-300 flex-1 flex flex-col justify-between">
+              <div class="flex items-center justify-between pb-2 border-b border-white/10 text-zinc-500 text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/60"></span>
+                  <span class="ml-2 text-zinc-400">devduo-cloud-build</span>
+                </div>
+                <span>Fastify + Next.js</span>
+              </div>
+              <div id="terminal-logs" class="my-2 space-y-1 overflow-y-auto max-h-24">
+                <div class="text-zinc-500">// Ready to ship next-gen software</div>
+                <div class="text-emerald-400">✔ Senior Backend: Imran (Python / FastAPI / Cloud)</div>
+                <div class="text-sky-400">✔ Senior Frontend: Mubin (React / Next.js / Mobile)</div>
+              </div>
+              <button id="run-code-btn" class="w-full py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-xs font-mono font-bold transition-colors flex items-center justify-center gap-2">
+                <span>▶ Execute CI/CD Pipeline</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES & STACK ================= -->
+  <section id="features" class="py-24 md:py-32 relative border-t border-white/[0.06] bg-[#020203]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Header -->
+      <div class="space-y-4 max-w-2xl mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Full-Stack Engineering Capabilities</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Modern engineering stack. <br>
+          <span class="text-chrome">Built for production resilience.</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          We do not assemble fragile WordPress templates. We architect scalable, modular systems with clean architecture and strict typing.
+        </p>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+              <i data-lucide="layout" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Full-Stack Web Apps</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Ultra-fast interactive dashboards, SaaS portals, and customer web applications. React 19, Next.js, Fastify, Tailwind CSS.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
+            <span class="px-2 py-0.5 rounded bg-white/5">React</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">Next.js 14</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">TypeScript</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <i data-lucide="server" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">High-Load Backend & Cloud</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Microservices, asynchronous task queues, relational DBs, Redis caching, and automated Docker/K8s deployment.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
+            <span class="px-2 py-0.5 rounded bg-white/5">Python</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">FastAPI</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">PostgreSQL</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">Docker</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+              <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Cross-Platform Mobile</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Native-feel iOS and Android applications built with React Native. Offline-first data caching and 60fps animations.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
+            <span class="px-2 py-0.5 rounded bg-white/5">React Native</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">Expo</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">iOS / Android</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+              <i data-lucide="bot" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">AI Agents & Integrations</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              LLM pipelines, vector databases (RAG), automated customer support bots, and intelligent business workflows.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
+            <span class="px-2 py-0.5 rounded bg-white/5">OpenAI</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">Claude</span>
+            <span class="px-2 py-0.5 rounded bg-white/5">LangChain</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ACHIEVEMENTS & TRACK RECORD ================= -->
+  <section id="achievements" class="py-24 relative border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Track Record</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Engineered for real business results
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          We measure our success by software reliability, speed of execution, and tangible client ROI.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto text-center">
+        <div class="glass-card rounded-3xl p-6">
+          <div class="text-4xl sm:text-5xl font-extrabold font-mono text-white text-gradient-sky">14ms</div>
+          <div class="text-xs text-zinc-400 font-mono mt-2">Avg API Latency</div>
+        </div>
+        <div class="glass-card rounded-3xl p-6">
+          <div class="text-4xl sm:text-5xl font-extrabold font-mono text-emerald-400">99.9%</div>
+          <div class="text-xs text-zinc-400 font-mono mt-2">Production Uptime SLA</div>
+        </div>
+        <div class="glass-card rounded-3xl p-6">
+          <div class="text-4xl sm:text-5xl font-extrabold font-mono text-white">12+</div>
+          <div class="text-xs text-zinc-400 font-mono mt-2">Platforms Shipped</div>
+        </div>
+        <div class="glass-card rounded-3xl p-6">
+          <div class="text-4xl sm:text-5xl font-extrabold font-mono text-amber-400">2–4 wks</div>
+          <div class="text-xs text-zinc-400 font-mono mt-2">Avg MVP Delivery</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PRICING SECTION ================= -->
+  <section id="pricing" class="py-24 md:py-32 relative border-t border-white/[0.06] bg-[#020203]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="wallet" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Transparent Pricing</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Simple, milestone-based pricing
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          No hidden fees or unexpected billable hours. Fixed sprints, guaranteed timelines, and weekly live demos of working software.
+        </p>
+      </div>
+
+      <!-- 3 Pricing Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        
+        <!-- Tier 1: MVP Sprint -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-400">Startup Sprint</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/10 text-zinc-300">1–2 Weeks</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-4">MVP Sprint</h3>
+            <p class="text-xs text-zinc-400 mt-2">
+              Rapid validation of your core hypothesis. Launch the first working version to real users to secure traction or investment.
+            </p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold font-mono text-white">$490</span>
+              <span class="text-xs text-zinc-500 block mt-1">Fixed turnkey sprint</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-zinc-300 border-t border-white/10 pt-6">
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Responsive React / Next.js web application</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>PostgreSQL database & user auth (OAuth / Email)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Clean RESTful API gateway</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Automated cloud deployment (Vercel / Railway / AWS)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>14 days post-launch warranty support</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="open-contact-modal btn-secondary w-full py-3.5 rounded-2xl text-xs font-bold tracking-wide mt-8">
+            Choose MVP Sprint
+          </button>
+        </div>
+
+        <!-- Tier 2: Featured Full-Cycle Product (WHITE CARD) -->
+        <div class="featured-white-card rounded-3xl p-8 flex flex-col justify-between tilt-card relative transform lg:-translate-y-3">
+          
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-black text-white text-[10px] font-mono uppercase tracking-widest font-bold shadow-lg">
+            ★ Most Popular Choice
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-600 font-bold">End-to-End</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-zinc-200 text-zinc-800 font-semibold">3–4 Weeks</span>
+            </div>
+            <h3 class="text-2xl font-black text-zinc-950 mt-4">Full-Cycle Product</h3>
+            <p class="text-xs text-zinc-600 mt-2 font-medium">
+              Enterprise-grade digital platform with bespoke UI design, resilient microservices, payments, and AI integrations.
+            </p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold font-mono text-zinc-950">$1,250</span>
+              <span class="text-xs text-zinc-500 block mt-1">Complete turnkey delivery</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-zinc-800 font-medium border-t border-zinc-200 pt-6">
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Custom Figma UI/UX design system</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Scalable microservices backend (Python / FastAPI)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Stripe / PayPal payments & subscription billing</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>LLM & AI model integration (OpenAI / Claude API)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>CI/CD automation, Docker orchestration & Redis</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>30 days comprehensive warranty & maintenance</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="open-contact-modal w-full py-4 rounded-2xl bg-black text-white text-xs font-bold tracking-wide hover:bg-zinc-800 transition-colors shadow-xl mt-8 flex items-center justify-center gap-2">
+            <span>Launch Full-Cycle Project</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Tier 3: Dedicated Engineering Team -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-400">Partnership</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/10 text-zinc-300">Monthly</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-4">Dedicated Duo</h3>
+            <p class="text-xs text-zinc-400 mt-2">
+              Two senior developers embedded as your technical arm, CTO-as-a-service, and white-label engineering partner.
+            </p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold font-mono text-white">$2,400</span>
+              <span class="text-xs text-zinc-500 block mt-1">Per month for two senior engineers</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-zinc-300 border-t border-white/10 pt-6">
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Full product immersion & direct engineering</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Unlimited sprint feature backlog</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Daily async standups & direct Slack / Telegram</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>24/7 high-availability infrastructure on-call</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Complete cloud architecture management</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="open-contact-modal btn-secondary w-full py-3.5 rounded-2xl text-xs font-bold tracking-wide mt-8">
+            Retain the Duo
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Interactive Calculator Section -->
+      <div id="calculator" class="mt-20 max-w-4xl mx-auto glass-card rounded-3xl p-8 border-2 border-sky-500/30 shadow-[0_0_60px_rgba(56,189,248,0.12)] relative scroll-mt-28">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 font-mono text-[11px] mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 animate-pulse text-sky-400"></i>
+          <span>INSTANT ESTIMATOR & PDF PROPOSAL GENERATOR</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+          <div>
+            <h4 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="calculator" class="w-6 h-6 text-sky-400"></i>
+              Project Cost & Timeline Calculator
+            </h4>
+            <p class="text-xs text-zinc-400 mt-1">Select your project parameters to get an immediate official proposal in PDF</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <div id="calc-price" class="text-3xl font-black font-mono text-white text-gradient-sky">from $490</div>
+            <div id="calc-time" class="text-xs font-mono text-emerald-400 font-bold">Timeline: 1–2 wks</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+          <!-- 1. Product Type -->
+          <div class="custom-select-wrapper relative" data-target="calc-type">
+            <label class="block text-xs font-mono text-zinc-400 mb-2 uppercase">Product Type</label>
+            <button type="button" class="custom-select-btn w-full text-white text-xs rounded-2xl p-3.5 flex items-center justify-between transition-all focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer">
+              <span class="selected-text font-medium flex items-center gap-2">
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-sky-400"></i>
+                <span>MVP Web Application (SaaS)</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 chevron-icon transition-transform duration-200"></i>
+            </button>
+            <div class="custom-select-dropdown hidden absolute left-0 right-0 top-full mt-2 rounded-2xl p-1.5 z-30 space-y-1">
+              <div class="custom-option selected flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer" data-value="490" data-label="MVP Web Application (SaaS)" data-icon="globe" data-icon-color="text-sky-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="globe" class="w-3.5 h-3.5 text-sky-400"></i>
+                  <span>MVP Web Application (SaaS)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1250" data-label="Full-Cycle Platform / Portal" data-icon="layers" data-icon-color="text-purple-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="layers" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <span>Full-Cycle Platform / Portal</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="950" data-label="Mobile App (iOS & Android)" data-icon="smartphone" data-icon-color="text-emerald-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span>Mobile App (iOS & Android)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="390" data-label="AI Bot / Workflow / Landing" data-icon="bot" data-icon-color="text-yellow-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="bot" class="w-3.5 h-3.5 text-yellow-400"></i>
+                  <span>AI Bot / Workflow / Landing</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+            </div>
+            <input type="hidden" id="calc-type" value="490">
+          </div>
+
+          <!-- 2. Scope & Design -->
+          <div class="custom-select-wrapper relative" data-target="calc-scope">
+            <label class="block text-xs font-mono text-zinc-400 mb-2 uppercase">Design & Scope</label>
+            <button type="button" class="custom-select-btn w-full text-white text-xs rounded-2xl p-3.5 flex items-center justify-between transition-all focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer">
+              <span class="selected-text font-medium flex items-center gap-2">
+                <i data-lucide="file-code" class="w-3.5 h-3.5 text-zinc-400"></i>
+                <span>Have Existing Design / Spec</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 chevron-icon transition-transform duration-200"></i>
+            </button>
+            <div class="custom-select-dropdown hidden absolute left-0 right-0 top-full mt-2 rounded-2xl p-1.5 z-30 space-y-1">
+              <div class="custom-option selected flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer" data-value="1.0" data-label="Have Existing Design / Spec" data-icon="file-code" data-icon-color="text-zinc-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="file-code" class="w-3.5 h-3.5 text-zinc-400"></i>
+                  <span>Have Existing Design / Spec</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1.3" data-label="Custom UI/UX Design (+30%)" data-icon="palette" data-icon-color="text-pink-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="palette" class="w-3.5 h-3.5 text-pink-400"></i>
+                  <span>Custom UI/UX Design (+30%)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1.6" data-label="Complex Enterprise Scope (+60%)" data-icon="cpu" data-icon-color="text-blue-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-400"></i>
+                  <span>Complex Enterprise (+60%)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+            </div>
+            <input type="hidden" id="calc-scope" value="1.0">
+          </div>
+
+          <!-- 3. Urgency -->
+          <div class="custom-select-wrapper relative" data-target="calc-urgency">
+            <label class="block text-xs font-mono text-zinc-400 mb-2 uppercase">Sprint Pace</label>
+            <button type="button" class="custom-select-btn w-full text-white text-xs rounded-2xl p-3.5 flex items-center justify-between transition-all focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer">
+              <span class="selected-text font-medium flex items-center gap-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-400"></i>
+                <span>Standard Pace</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 chevron-icon transition-transform duration-200"></i>
+            </button>
+            <div class="custom-select-dropdown hidden absolute left-0 right-0 top-full mt-2 rounded-2xl p-1.5 z-30 space-y-1">
+              <div class="custom-option selected flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer" data-value="1.0" data-label="Standard Pace" data-icon="clock" data-icon-color="text-zinc-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-400"></i>
+                  <span>Standard Pace</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1.25" data-label="Fast-Track Sprint" data-icon="zap" data-icon-color="text-amber-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>Fast-Track Sprint (+25%)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+            </div>
+            <input type="hidden" id="calc-urgency" value="1.0">
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs text-zinc-500 font-mono">* Fixed milestone pricing is locked in agreement prior to kickoff.</span>
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <button id="download-pdf-btn" type="button" class="open-proposal-btn w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold bg-sky-500/20 hover:bg-sky-500/30 border-2 border-sky-400 hover:border-sky-300 text-sky-200 hover:text-white transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-lg shadow-sky-500/20 group">
+              <i data-lucide="file-down" class="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform"></i>
+              <span class="tracking-wide text-white font-bold">📄 Download PDF Quote</span>
+            </button>
+            <button class="open-contact-modal btn-primary w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+              <span>Discuss This Scope</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT US (THE DUO) ================= -->
+  <section id="about" class="py-24 md:py-32 relative border-t border-white/[0.06] bg-[#020203]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="space-y-4 max-w-2xl mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="code-2" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Founders & Senior Engineers</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Who builds your product: <br>
+          <span class="text-chrome">Two dedicated partners</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          We combined deep expertise in distributed backend systems and high-polish frontend engineering. Two synchronized senior developers out-execute bloated teams with ten managers.
+        </p>
+      </div>
+
+      <!-- Two Founders Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+        
+        <!-- Founder 1: Imran -->
+        <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-900 border border-white/20 p-1 flex items-center justify-center">
+              <div class="w-full h-full bg-[#0a0a0f] rounded-xl flex items-center justify-center text-2xl font-mono font-bold text-white">
+                👨‍💻
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Imran (Lead Architect)</h3>
+              <p class="text-xs font-mono text-zinc-400 mt-1">Backend, Cloud & High-Load Architecture</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] font-mono text-zinc-300">6+ Years Exp</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-[10px] font-mono text-emerald-400">High-Load</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+            Architects database schemas, microservice clustering, high-throughput APIs, and security perimeters. Converts complex operational business models into clean, resilient code.
+          </p>
+
+          <div class="space-y-2 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono text-zinc-500 uppercase">Core Competencies:</div>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-300">
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Python</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">PostgreSQL</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Docker & K8s</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">FastAPI</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Redis</span>
+            </div>
+            <div class="pt-2">
+              <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 text-xs font-mono transition-all border border-sky-500/20 hover:border-sky-500/40">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Reach out: @rolldurov</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder 2: Mubin -->
+        <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-900 border border-white/20 p-1 flex items-center justify-center">
+              <div class="w-full h-full bg-[#0a0a0f] rounded-xl flex items-center justify-center text-2xl font-mono font-bold text-white">
+                🚀
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Mubin (Senior Product Engineer)</h3>
+              <p class="text-xs font-mono text-zinc-400 mt-1">Frontend, Mobile Apps & UI/UX Engineering</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] font-mono text-zinc-300">5+ Years Exp</span>
+                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-[10px] font-mono text-sky-400">UI/UX Polish</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+            Crafts interactive interfaces, fluid animations, and responsive cross-platform mobile apps. Focuses on sub-50ms responsiveness and intuitive UX that drives user adoption.
+          </p>
+
+          <div class="space-y-2 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono text-zinc-500 uppercase">Core Competencies:</div>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-300">
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">TypeScript</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">React & Next.js</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Tailwind CSS</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">React Native</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Three.js</span>
+            </div>
+            <div class="pt-2">
+              <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 text-xs font-mono transition-all border border-sky-500/20 hover:border-sky-500/40">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Reach out: @rolldurov</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Comparison Banner -->
+      <div class="max-w-5xl mx-auto glass-card rounded-3xl p-8 border border-white/15">
+        <h4 class="text-lg font-bold text-white mb-6 text-center">Why an engineering duo beats a traditional 20-person agency</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <div class="text-emerald-400 font-bold font-mono">01 / Direct Velocity</div>
+            <p class="text-zinc-400">
+              No account managers or game of telephone. You talk directly with the engineers writing every line of code.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <div class="text-emerald-400 font-bold font-mono">02 / Pure Value Pricing</div>
+            <p class="text-zinc-400">
+              You pay strictly for senior engineering output—not fancy agency offices in Manhattan or London, recruiter margins, or coffee bars.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <div class="text-emerald-400 font-bold font-mono">03 / Radical Accountability</div>
+            <p class="text-zinc-400">
+              We stake our personal reputation on every delivery. We write clean, self-documenting code with comprehensive handover.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="py-24 relative border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Client Feedback</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          What founders say
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        
+        <!-- Review 1 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed italic">
+              "The duo rebuilt our legacy backend to FastAPI and shipped our Next.js web application in 4 weeks flat. Response times dropped from 180ms to 14ms. Our investors were blown away by the UI fluidity."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-white">
+              AK
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Alex K.</div>
+              <div class="text-[10px] text-zinc-500 font-mono">CEO, Fintech SaaS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed italic">
+              "Best vendor experience in my 8 years of running tech startups. Zero fluff, weekly working demos, and our AI analytics MVP went live two weeks ahead of schedule."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-white">
+              IS
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Ian S.</div>
+              <div class="text-[10px] text-zinc-500 font-mono">Co-Founder, SaaS Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed italic">
+              "We retained DEVDUO as our dedicated engineering arm. In 3 months they cleared out 6 months of accumulated tech backlog. Clean documentation made onboarding new hires effortless."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-white">
+              DV
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">David V.</div>
+              <div class="text-[10px] text-zinc-500 font-mono">CTO, EdTech Platform</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="py-24 relative border-t border-white/[0.06] bg-[#020203]">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <div class="text-center mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Frequently Asked Questions</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Everything you need to know
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <h4 class="text-base font-bold text-white">How does project collaboration work?</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transition-transform duration-200"></i>
+          </div>
+          <p class="faq-answer hidden text-xs text-zinc-400 mt-4 leading-relaxed border-t border-white/10 pt-4">
+            We begin with a 30-minute discovery call to dissect your specifications. We provide an exact architectural plan, milestone breakdown, and fixed cost. Communication takes place directly in Slack or Telegram with weekly live demo builds.
+          </p>
+        </div>
+
+        <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <h4 class="text-base font-bold text-white">What payment methods and contract terms do you support?</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transition-transform duration-200"></i>
+          </div>
+          <p class="faq-answer hidden text-xs text-zinc-400 mt-4 leading-relaxed border-t border-white/10 pt-4">
+            We work with international clients via milestone-based agreements (typically 50% upfront, 50% upon successful staging acceptance). We accept Wise, international wire transfer, Stripe, and Escrow.
+          </p>
+        </div>
+
+        <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <h4 class="text-base font-bold text-white">Who owns the code and intellectual property?</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transition-transform duration-200"></i>
+          </div>
+          <p class="faq-answer hidden text-xs text-zinc-400 mt-4 leading-relaxed border-t border-white/10 pt-4">
+            You maintain 100% intellectual property ownership. Code is pushed directly to your private GitHub/GitLab organization from day one, accompanied by setup documentation.
+          </p>
+        </div>
+
+        <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <h4 class="text-base font-bold text-white">Do you offer post-launch warranty and maintenance?</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transition-transform duration-200"></i>
+          </div>
+          <p class="faq-answer hidden text-xs text-zinc-400 mt-4 leading-relaxed border-t border-white/10 pt-4">
+            Yes! Every project includes a 14 to 30-day warranty period for bug fixes and adjustments at zero extra cost. We also provide monthly dedicated retainer plans for scaling products.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="py-12 border-t border-white/10 relative">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center font-mono font-bold text-white text-sm">
+          D²
+        </div>
+        <span class="text-xs text-zinc-400 font-mono">© 2026 DEVDUO Studio. Imran & Mubin.</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-mono text-zinc-400">
+        <a href="../index.html" class="hover:text-white transition-colors">Русская версия (RU)</a>
+        <span>•</span>
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Telegram: @rolldurov</a>
+        <span>•</span>
+        <button class="open-contact-modal hover:text-white transition-colors cursor-pointer">Get Proposal</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= CONTACT MODAL ================= -->
+  <div id="contact-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card rounded-3xl p-8 max-w-lg w-full border border-white/20 relative shadow-2xl">
+      
+      <button id="close-modal-btn" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors cursor-pointer">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="space-y-2 mb-6">
+        <h3 class="text-2xl font-bold text-white">Start Your Project</h3>
+        <p class="text-xs text-zinc-400">
+          Leave your inquiry and Imran & Mubin will review your spec and respond within 1–2 hours.
+        </p>
+      </div>
+
+      <form id="contact-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Your Name / Company</label>
+          <input type="text" name="name" required placeholder="e.g. Alex (Apex Studio)" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/40">
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Contact (Telegram, Email, or WhatsApp)</label>
+          <input type="text" name="contact" required placeholder="@username or alex@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/40">
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Project Overview</label>
+          <textarea name="message" rows="3" placeholder="Briefly describe what you're building (stack, goals, target deadline)..." class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/40"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-xl btn-primary text-xs font-bold tracking-wide flex items-center justify-center gap-2">
+          <span>Send Inquiry to Engineers</span>
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        </button>
+      </form>
+
+      <div class="mt-4 text-center">
+        <span class="text-[11px] text-zinc-500 font-mono">Or message directly in Telegram: </span>
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-400 font-mono hover:underline">@rolldurov</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= LIVE TELEGRAM FLOATING WIDGET ================= -->
+  <div id="live-telegram-widget" class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    
+    <!-- Expanded Chat Popup Card -->
+    <div id="live-chat-popup" class="hidden mb-3 w-[330px] sm:w-[370px] glass-card rounded-3xl p-5 border border-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-all duration-300 transform origin-bottom-right">
+      
+      <!-- Card Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="relative flex -space-x-2 overflow-hidden p-0.5">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 border-2 border-black flex items-center justify-center text-xs font-bold text-white shadow-md">
+              I
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-zinc-200 to-zinc-400 border-2 border-black flex items-center justify-center text-xs font-bold text-black shadow-md">
+              M
+            </div>
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-black"></span>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>Imran & Mubin</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-zinc-300">DEVDUO</span>
+            </div>
+            <p class="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Online on Telegram &bull; Reply in 5-15m
+            </p>
+          </div>
+        </div>
+
+        <button id="close-live-chat-btn" class="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Message Cloud -->
+      <div class="my-4 space-y-2.5">
+        <div class="bg-white/[0.04] border border-white/10 p-3.5 rounded-2xl text-xs text-zinc-200 leading-relaxed font-sans shadow-inner">
+          <p class="text-zinc-300">
+            Hi! 👋 We are live and ready to review your project architecture or calculate a free scope proposal. Feel free to message us on Telegram:
+          </p>
+          <div class="mt-2 text-[10px] font-mono text-zinc-500 text-right">
+            just now
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Action Buttons -->
+      <div class="space-y-2">
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl text-xs font-bold bg-sky-500 hover:bg-sky-400 text-white flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition-all cursor-pointer">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Direct Telegram: @rolldurov</span>
+        </a>
+
+        <button class="open-contact-modal w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Leave Website Inquiry</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Floating Trigger Capsule -->
+    <button id="live-chat-toggle-btn" class="group relative flex items-center gap-3 py-2.5 px-4 rounded-full bg-[#0a0a0f]/95 border border-white/20 hover:border-white/40 shadow-[0_15px_35px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+      <div class="relative flex -space-x-2">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 border border-black flex items-center justify-center text-[10px] font-bold text-white">
+          I
+        </div>
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-zinc-200 to-zinc-400 border border-black flex items-center justify-center text-[10px] font-bold text-black">
+          M
+        </div>
+        <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-black animate-pulse"></span>
+      </div>
+
+      <div class="flex flex-col text-left">
+        <span class="text-xs font-bold text-white group-hover:text-sky-300 transition-colors flex items-center gap-1.5">
+          <span>Imran & Mubin</span>
+          <i data-lucide="send" class="w-3 h-3 text-sky-400"></i>
+        </span>
+        <span class="text-[10px] font-mono text-emerald-400">Online &bull; Let's chat</span>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- Lucide Icon Initializer -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Interactive Logic -->
+  <script src="../script.js"></script>
+
+</body>
+</html>
