@@ -376,27 +376,42 @@ function initModal() {
   }
 }
 
-// 5. 3D Card Tilt Effect
+// 5. 3D Card Tilt Effect (Optimized with RAF & cached rects)
 function initCardTilt() {
+  if (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const tiltCards = document.querySelectorAll('.tilt-card');
   tiltCards.forEach(card => {
+    let rect = null;
+    let ticking = false;
+
+    card.addEventListener('mouseenter', () => {
+      rect = card.getBoundingClientRect();
+    }, { passive: true });
+
     card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
+      if (!rect) rect = card.getBoundingClientRect();
+      if (!ticking) {
+        const clientX = e.clientX;
+        const clientY = e.clientY;
+        requestAnimationFrame(() => {
+          if (!rect) return;
+          const x = clientX - rect.left;
+          const y = clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4.5;
+          const rotateY = ((x - centerX) / centerX) * 4.5;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(1)}deg) rotateY(${rotateY.toFixed(1)}deg)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
 
     card.addEventListener('mouseleave', () => {
+      rect = null;
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-    });
+    }, { passive: true });
   });
 }
 
@@ -441,6 +456,18 @@ function initNavbarAnimations() {
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
 
+  // Precompute section positions to avoid layout thrashing on scroll
+  let sectionPositions = [];
+  function updateSectionPositions() {
+    sectionPositions = Array.from(sections).map(section => ({
+      id: section.getAttribute('id'),
+      top: section.offsetTop - 140,
+      bottom: section.offsetTop - 140 + section.offsetHeight
+    }));
+  }
+  updateSectionPositions();
+  window.addEventListener('resize', updateSectionPositions, { passive: true });
+
   // Scroll handler: Floating Island + Progress Bar + Scrollspy
   function handleScroll() {
     const scrollY = window.scrollY || window.pageYOffset;
@@ -449,39 +476,50 @@ function initNavbarAnimations() {
     // A. Floating Capsule Transition
     if (header) {
       if (scrollY > 35) {
-        header.classList.add('nav-scrolled');
+        if (!header.classList.contains('nav-scrolled')) header.classList.add('nav-scrolled');
       } else {
-        header.classList.remove('nav-scrolled');
+        if (header.classList.contains('nav-scrolled')) header.classList.remove('nav-scrolled');
       }
     }
 
     // B. Progress Bar
     if (progressBar && docHeight > 0) {
       const scrollPercent = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
-      progressBar.style.width = scrollPercent + '%';
+      progressBar.style.width = scrollPercent.toFixed(1) + '%';
     }
 
-    // C. Scrollspy
+    // C. Scrollspy using cached positions
     let currentSectionId = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 140;
-      const sectionHeight = section.offsetHeight;
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id');
+    for (let i = 0; i < sectionPositions.length; i++) {
+      const pos = sectionPositions[i];
+      if (scrollY >= pos.top && scrollY < pos.bottom) {
+        currentSectionId = pos.id;
+        break;
       }
-    });
+    }
 
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === `#${currentSectionId}`) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+    if (currentSectionId) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentSectionId}`) {
+          if (!link.classList.contains('active')) link.classList.add('active');
+        } else {
+          if (link.classList.contains('active')) link.classList.remove('active');
+        }
+      });
+    }
   }
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  let isScrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!isScrollTicking) {
+      requestAnimationFrame(() => {
+        handleScroll();
+        isScrollTicking = false;
+      });
+      isScrollTicking = true;
+    }
+  }, { passive: true });
   handleScroll();
 
   // Magnetic Sliding Capsule Hover Effect
@@ -632,7 +670,7 @@ function initLeadsViewer() {
   }
 }
 
-// 9. 3D Hero Mouse Parallax Physics
+// 9. 3D Hero Mouse Parallax Physics (High-Performance Engine)
 function initHeroParallax() {
   const container = document.getElementById('hero-visual-container');
   const laptop = document.getElementById('hero-laptop-wrap');
@@ -640,57 +678,92 @@ function initHeroParallax() {
   const star2 = document.getElementById('hero-star-2');
 
   if (!container || !laptop) return;
-  if (window.matchMedia('(pointer: coarse)').matches) return;
+  if (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   let mouseX = 0;
   let mouseY = 0;
   let currentX = 0;
   let currentY = 0;
-  let isHovered = false;
+  let isVisible = true;
+  let isRunning = false;
+
+  let winHalfW = window.innerWidth / 2;
+  let winHalfH = window.innerHeight / 2;
+
+  window.addEventListener('resize', () => {
+    winHalfW = window.innerWidth / 2;
+    winHalfH = window.innerHeight / 2;
+  }, { passive: true });
+
+  // Only run when Hero is actually in the viewport!
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && !isRunning) {
+        isRunning = true;
+        requestAnimationFrame(animate);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(container);
+  }
 
   window.addEventListener('mousemove', (e) => {
-    const rect = container.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    if (e.clientY < window.innerHeight * 1.2) {
-      mouseX = (e.clientX - centerX) / (window.innerWidth / 2);
-      mouseY = (e.clientY - centerY) / (window.innerHeight / 2);
-      isHovered = true;
-    } else {
-      isHovered = false;
-    }
-  });
-
-  window.addEventListener('mouseleave', () => {
-    isHovered = false;
-  });
-
-  function animate() {
-    if (!isHovered) {
+    if (!isVisible) return;
+    if (e.clientY > window.innerHeight * 1.2) {
       mouseX = 0;
       mouseY = 0;
+    } else {
+      mouseX = (e.clientX - winHalfW) / winHalfW;
+      mouseY = (e.clientY - winHalfH) / winHalfH;
+    }
+    if (!isRunning) {
+      isRunning = true;
+      requestAnimationFrame(animate);
+    }
+  }, { passive: true });
+
+  window.addEventListener('mouseleave', () => {
+    mouseX = 0;
+    mouseY = 0;
+    if (!isRunning && isVisible) {
+      isRunning = true;
+      requestAnimationFrame(animate);
+    }
+  }, { passive: true });
+
+  function animate() {
+    if (!isVisible) {
+      isRunning = false;
+      return;
     }
 
     currentX += (mouseX - currentX) * 0.08;
     currentY += (mouseY - currentY) * 0.08;
 
-    const rotY = currentX * 14;
-    const rotX = -currentY * 14;
+    const rotY = currentX * 10;
+    const rotX = -currentY * 10;
 
-    laptop.style.transform = `perspective(1000px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg) translateZ(10px)`;
+    laptop.style.transform = `perspective(1000px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg)`;
 
     if (star1) {
-      star1.style.transform = `translate(${(currentX * -20).toFixed(2)}px, ${(currentY * -20).toFixed(2)}px) rotate(${(currentX * 15).toFixed(2)}deg)`;
+      star1.style.transform = `translate3d(${(currentX * -14).toFixed(1)}px, ${(currentY * -14).toFixed(1)}px, 0)`;
     }
     if (star2) {
-      star2.style.transform = `translate(${(currentX * 18).toFixed(2)}px, ${(currentY * 18).toFixed(2)}px)`;
+      star2.style.transform = `translate3d(${(currentX * 12).toFixed(1)}px, ${(currentY * 12).toFixed(1)}px, 0)`;
+    }
+
+    // When settled, stop calling requestAnimationFrame to preserve 100% CPU/GPU!
+    const diffX = Math.abs(mouseX - currentX);
+    const diffY = Math.abs(mouseY - currentY);
+    if (diffX < 0.001 && diffY < 0.001) {
+      currentX = mouseX;
+      currentY = mouseY;
+      isRunning = false;
+      return;
     }
 
     requestAnimationFrame(animate);
   }
-
-  animate();
 }
 
 // 10. Commercial Proposal / PDF Estimate Generator

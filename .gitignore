@@ -8,3 +8,5 @@ node_modules/
 *.csv
 gen_*.py
 *.txt
+
+.vercel

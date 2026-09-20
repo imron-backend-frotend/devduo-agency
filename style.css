@@ -63,16 +63,19 @@ body {
   z-index: 0;
 }
 
-/* Glassmorphism Card System */
+/* Glassmorphism Card System (GPU accelerated) */
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
   box-shadow: 
     0 20px 40px -15px rgba(0, 0, 0, 0.8),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .glass-card:hover {
@@ -188,25 +191,7 @@ body {
   animation: pulseGlow 6s ease-in-out infinite;
 }
 
-/* Infinite Ticker for Tech Stack */
-@keyframes ticker {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 35s linear infinite;
-}
-
-.ticker-track:hover {
-  animation-play-state: paused;
-}
 
 /* Buttons */
 .btn-primary {
@@ -567,17 +552,21 @@ body {
   }
 }
 
-/* ================= MARQUEE TECH TICKER ================= */
+/* ================= MARQUEE TECH TICKER (100% GPU ACCELERATED) ================= */
 @keyframes marquee-scroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .ticker-track,
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 26s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .ticker-track:hover,
@@ -590,17 +579,27 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .case-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translateZ(0);
   border-color: rgba(56, 189, 248, 0.4);
   box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.15);
 }
 
 .glow-pill {
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.tilt-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 

@@ -194,33 +194,34 @@
           <div class="absolute w-80 h-80 bg-white/[0.08] rounded-full blur-[100px] pointer-events-none"></div>
 
           <!-- Chrome 4-point star (like in screenshot top right) -->
-          <div id="hero-star-1" class="absolute -top-10 right-4 sm:-top-14 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none animate-float-star transition-transform duration-200 ease-out will-change-transform">
-            <img src="assets/chrome-star.jpg" alt="Chrome Star Accent" class="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.25)] rounded-full mix-blend-screen">
+          <div id="hero-star-1" class="absolute -top-10 right-4 sm:-top-14 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none animate-float-star will-change-transform">
+            <img src="assets/chrome-star.jpg" alt="Chrome Star Accent" decoding="async" class="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.25)] rounded-full mix-blend-screen">
           </div>
 
           <!-- Mini chrome star bottom left -->
-          <div id="hero-star-2" class="absolute bottom-4 -left-6 w-16 h-16 sm:w-20 sm:h-20 z-20 pointer-events-none animate-float-reverse transition-transform duration-200 ease-out will-change-transform">
-            <img src="assets/chrome-star.jpg" alt="Chrome Star Accent" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(255,255,255,0.15)] rounded-full mix-blend-screen opacity-80">
+          <div id="hero-star-2" class="absolute bottom-4 -left-6 w-16 h-16 sm:w-20 sm:h-20 z-20 pointer-events-none animate-float-reverse will-change-transform">
+            <img src="assets/chrome-star.jpg" alt="Chrome Star Accent" decoding="async" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(255,255,255,0.15)] rounded-full mix-blend-screen opacity-80">
           </div>
 
-          <!-- Main 3D Floating Laptop Asset -->
-          <div id="hero-laptop-wrap" class="relative w-full max-w-lg animate-float-laptop z-10 transition-transform duration-200 ease-out will-change-transform">
-            <div class="rounded-3xl p-2 bg-gradient-to-b from-white/20 via-white/5 to-transparent shadow-[0_30px_100px_-20px_rgba(0,0,0,0.9)] border border-white/10 backdrop-blur-2xl">
-              <img src="assets/hero-laptop.jpg" alt="3D Chrome Laptop with Code" class="w-full h-auto rounded-2xl object-cover shadow-2xl">
-            </div>
+          <!-- Main 3D Floating Laptop Asset (Decoupled Float + Tilt) -->
+          <div class="relative w-full max-w-lg animate-float-laptop z-10">
+            <div id="hero-laptop-wrap" class="w-full will-change-transform">
+              <div class="rounded-3xl p-2 bg-gradient-to-b from-white/20 via-white/5 to-transparent shadow-[0_30px_100px_-20px_rgba(0,0,0,0.9)] border border-white/10 backdrop-blur-md">
+                <img src="assets/hero-laptop.jpg" alt="3D Chrome Laptop with Code" fetchpriority="high" decoding="async" class="w-full h-auto rounded-2xl object-cover shadow-2xl">
+              </div>
 
-            <!-- Floating Mini Badge 1 (Top Left) -->
-            <div class="absolute -top-4 -left-4 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 text-xs font-mono text-zinc-200 shadow-xl border border-white/15 animate-float-reverse">
-              <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
-              <span>Latency: 14ms (Edge)</span>
-            </div>
+              <!-- Floating Mini Badge 1 (Top Left) -->
+              <div class="absolute -top-4 -left-4 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 text-xs font-mono text-zinc-200 shadow-xl border border-white/15 animate-float-reverse">
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                <span>Latency: 14ms (Edge)</span>
+              </div>
 
-            <!-- Floating Mini Badge 2 (Bottom Right) -->
-            <div class="absolute -bottom-5 -right-3 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 text-xs font-mono text-zinc-200 shadow-xl border border-white/15 animate-float-laptop">
-              <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
-              <span>Zero Legacy Code</span>
+              <!-- Floating Mini Badge 2 (Bottom Right) -->
+              <div class="absolute -bottom-5 -right-3 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 text-xs font-mono text-zinc-200 shadow-xl border border-white/15 animate-float-laptop">
+                <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
+                <span>Zero Legacy Code</span>
+              </div>
             </div>
-
           </div>
 
         </div>
@@ -534,7 +535,7 @@ export async function bootstrap(app: FastifyInstance) {
           <!-- Duo Workstation Image embed -->
           <div class="pt-4">
             <div class="rounded-3xl p-1 bg-gradient-to-b from-white/15 to-transparent border border-white/10 overflow-hidden shadow-2xl">
-              <img src="assets/duo-workstation.jpg" alt="Duo Workstation with Laptops" class="w-full h-auto rounded-2xl object-cover hover:scale-105 transition-transform duration-700">
+              <img src="assets/duo-workstation.jpg" alt="Duo Workstation with Laptops" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl object-cover hover:scale-105 transition-transform duration-700">
             </div>
             <p class="text-[11px] font-mono text-zinc-500 mt-3 text-center">
               // Два рабочих места — полный стек от системной архитектуры до пиксель-перфектного UI.
