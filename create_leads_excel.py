@@ -505,7 +505,7 @@ leads_data = [
 
 wa_template = """Hi {name} team! 👋
 
-I'm Imran, co-founder at DEVDUO Studio (https://imron-backend-frotend.github.io/devduo-agency/en/). We are an engineering studio of two senior developers (Lead Backend Architect + Senior Frontend Engineer).
+I'm Imran, co-founder at DEVDUO Studio (https://devduo-studio.vercel.app/en/). We are an engineering studio of two senior developers (Lead Backend Architect + Senior Frontend Engineer).
 
 We partner with digital and creative agencies across the Gulf and globally as a dedicated white-label engineering arm. When you need custom web platforms, complex backends (FastAPI/Python/Node), or mobile/AI systems, we build them under your brand:
 
@@ -526,7 +526,7 @@ email_body_tpl = """Hi {name} team,
 
 I’ve been following your work and really admire the digital experiences and products you deliver.
 
-I’m Imran, co-founder at DEVDUO (https://imron-backend-frotend.github.io/devduo-agency/en/). We are an engineering studio of two senior developers (Lead Backend Architect + Senior Product Engineer).
+I’m Imran, co-founder at DEVDUO (https://devduo-studio.vercel.app/en/). We are an engineering studio of two senior developers (Lead Backend Architect + Senior Product Engineer).
 
 We partner with creative and digital agencies in the US, UK, and Europe as a dedicated white-label engineering arm. Whenever you need custom web platforms, complex backends (FastAPI/Python/Node), or mobile/AI integrations, we build the technical side under your brand:
 
@@ -540,7 +540,7 @@ Best regards,
 
 Imran & Mubin
 Founders & Senior Engineers | DEVDUO Studio
-Portfolio: https://imron-backend-frotend.github.io/devduo-agency/en/
+Portfolio: https://devduo-studio.vercel.app/en/
 Telegram: https://t.me/rolldurov
 Email: devduo.engineering@gmail.com
 """
