@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181f" />
+      <stop offset="100%" stop-color="#030304" />
+    </linearGradient>
+    <linearGradient id="chromeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="45%" stop-color="#a1a1aa" stop-opacity="0.3" />
+      <stop offset="70%" stop-color="#3f3f46" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.7" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#e4e4e7" />
+      <stop offset="100%" stop-color="#a1a1aa" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Base background with rounded corners -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#chromeBorder)" stroke-width="2" />
+
+  <!-- Subtle glow -->
+  <circle cx="32" cy="28" r="24" fill="url(#glow)" />
+
+  <!-- D² Monogram -->
+  <g fill="url(#textGrad)" font-family="system-ui, -apple-system, sans-serif" font-weight="900">
+    <text x="18" y="44" font-size="32" letter-spacing="-1">D</text>
+    <text x="40" y="26" font-size="18" fill="#38bdf8">2</text>
+  </g>
+
+  <!-- Green live dot -->
+  <circle cx="49" cy="49" r="4" fill="#10b981" />
+  <circle cx="49" cy="49" r="6" fill="#10b981" fill-opacity="0.4" />
+</svg>

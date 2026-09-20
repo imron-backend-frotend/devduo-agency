@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEVDUO — Студия разработки двух Senior-инженеров</title>
+  <meta name="description" content="Премиальная разработка сложных веб-сервисов, мобильных приложений и AI-интеграций под ключ. Два senior-инженера со скоростью целого агентства.">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#030304">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- OpenGraph / Telegram / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devduo.agency/">
+  <meta property="og:title" content="DEVDUO — Студия разработки двух Senior-инженеров">
+  <meta property="og:description" content="Разработка сложных веб-сервисов, мобильных приложений и AI-интеграций. Два senior-инженера со скоростью агентства. Напрямую в Telegram @rolldurov.">
+  <meta property="og:image" content="assets/hero-laptop.jpg">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DEVDUO — Студия разработки двух Senior-инженеров">
+  <meta name="twitter:description" content="Премиальная разработка цифровых продуктов под ключ без посредников.">
+  <meta name="twitter:image" content="assets/hero-laptop.jpg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#030304',
+              surface: '#0d0d12',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#030304] text-zinc-100 selection:bg-white selection:text-black min-h-screen relative overflow-x-hidden">
+
+  <!-- Ambient Light Effects (like in reference image) -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-white/[0.04] rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="fixed top-[40%] right-[-10%] w-[600px] h-[600px] bg-sky-500/[0.03] rounded-full blur-[160px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-zinc-400/[0.03] rounded-full blur-[160px] pointer-events-none -z-10"></div>
+
+  <!-- Background Grid Pattern -->
+  <div class="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-20"></div>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header id="navbar-header" class="sticky top-0 z-40 w-full transition-all duration-300">
+    <!-- Hairline Neon Scroll Progress Indicator -->
+    <div id="scroll-progress-bar"></div>
+
+    <div id="navbar-container" class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between transition-all duration-400">
+      
+      <!-- Brand Logo with 3D Pop and Glow -->
+      <a href="#" class="flex items-center gap-3 group logo-box">
+        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white via-zinc-300 to-zinc-600 p-[1px] shadow-lg shadow-white/5 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-[#09090d] rounded-[11px] flex items-center justify-center">
+            <span class="logo-symbol font-mono font-black text-lg text-white transition-transform duration-300">D²</span>
+          </div>
+          <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold tracking-wider text-base text-white group-hover:text-chrome transition-colors">DEVDUO</span>
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+            </span>
+          </div>
+          <span class="text-[10px] font-mono tracking-widest text-zinc-400 uppercase -mt-1">Engineering Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links with Magnetic Sliding Capsule -->
+      <nav id="nav-menu" class="hidden md:flex items-center p-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl relative">
+        <div id="nav-indicator"></div>
+        <a href="#features" class="nav-link">Стек & Возможности</a>
+        <a href="#achievements" class="nav-link">Кейсы & Цифры</a>
+        <a href="#pricing" class="nav-link">Тарифы</a>
+        <a href="#calculator" class="nav-link text-sky-300 font-semibold flex items-center gap-1.5"><i data-lucide="calculator" class="w-3 h-3 text-sky-400"></i> Смета (PDF)</a>
+        <a href="#about" class="nav-link">О нас</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Right Action CTAs -->
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-all py-2.5 px-4 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/5">
+          <i data-lucide="send" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>@rolldurov</span>
+        </a>
+        <button class="open-contact-modal btn-shimmer-cta px-5 py-2.5 rounded-full text-xs font-bold tracking-wide flex items-center gap-2 group cursor-pointer shadow-lg shadow-white/10">
+          <span>Обсудить проект</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-8 text-left z-10">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full badge-pill text-xs font-medium text-zinc-300">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="font-mono text-[11px] text-zinc-300 tracking-wide uppercase">Свободны для 2 проектов в этом квартале</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
+            Создаем цифровые продукты <br class="hidden sm:block">
+            <span class="text-chrome">со скоростью агентства.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl font-normal leading-relaxed">
+            Мы — команда из двух senior-инженеров. Проектируем и пишем высоконагруженные веб-сервисы, mobile apps и AI-решения под ключ. Без посредников, пустых созвонов и бюрократии.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button class="open-contact-modal btn-primary px-8 py-4 rounded-full text-sm font-bold flex items-center gap-3">
+              <span>Запустить проект</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <a href="#calculator" class="px-6 py-4 rounded-full text-sm font-semibold flex items-center gap-2.5 bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 hover:text-white border border-sky-400/35 hover:border-sky-400 transition-all shadow-lg shadow-sky-500/10">
+              <i data-lucide="file-down" class="w-4 h-4 text-sky-400"></i>
+              <span>Рассчитать смету в PDF ↓</span>
+            </a>
+            <a href="#features" class="btn-secondary px-6 py-4 rounded-full text-sm font-semibold flex items-center gap-2">
+              <i data-lucide="terminal" class="w-4 h-4 text-zinc-400"></i>
+              <span>Стек & демо</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics under buttons -->
+          <div class="pt-6 border-t border-white/[0.08] grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">100%</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Senior экспертиза</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">3.5x</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Быстрее запуск MVP</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-mono text-white">0%</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Бюрократии и наценок</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Visual: 3D Floating Chrome Laptop & Metallic Stars -->
+        <div id="hero-visual-container" class="lg:col-span-5 relative flex items-center justify-center perspective-[1200px]">
+          
+          <!-- Ambient Glow behind laptop -->
+          <div class="absolute w-80 h-80 bg-white/[0.08] rounded-full blur-[100px] pointer-events-none"></div>
+
+          <!-- Chrome 4-point star (like in screenshot top right) -->
+          <div id="hero-star-1" class="absolute -top-10 right-4 sm:-top-14 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none animate-float-star transition-transform duration-200 ease-out will-change-transform">
+            <img src="assets/chrome-star.jpg" alt="Chrome Star Accent" class="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(255,255,255,0.25)] rounded-full mix-blend-screen">
+          </div>
+
+          <!-- Mini chrome star bottom left -->
+          <div id="hero-star-2" class="absolute bottom-4 -left-6 w-16 h-16 sm:w-20 sm:h-20 z-20 pointer-events-none animate-float-reverse transition-transform duration-200 ease-out will-change-transform">
+            <img src="assets/chrome-star.jpg" alt="Chrome Star Accent" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(255,255,255,0.15)] rounded-full mix-blend-screen opacity-80">
+          </div>
+
+          <!-- Main 3D Floating Laptop Asset -->
+          <div id="hero-laptop-wrap" class="relative w-full max-w-lg animate-float-laptop z-10 transition-transform duration-200 ease-out will-change-transform">
+            <div class="rounded-3xl p-2 bg-gradient-to-b from-white/20 via-white/5 to-transparent shadow-[0_30px_100px_-20px_rgba(0,0,0,0.9)] border border-white/10 backdrop-blur-2xl">
+              <img src="assets/hero-laptop.jpg" alt="3D Chrome Laptop with Code" class="w-full h-auto rounded-2xl object-cover shadow-2xl">
+            </div>
+
+            <!-- Floating Mini Badge 1 (Top Left) -->
+            <div class="absolute -top-4 -left-4 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 text-xs font-mono text-zinc-200 shadow-xl border border-white/15 animate-float-reverse">
+              <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+              <span>Latency: 14ms (Edge)</span>
+            </div>
+
+            <!-- Floating Mini Badge 2 (Bottom Right) -->
+            <div class="absolute -bottom-5 -right-3 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 text-xs font-mono text-zinc-200 shadow-xl border border-white/15 animate-float-laptop">
+              <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
+              <span>Zero Legacy Code</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOGOS / TECH STACK TICKER ================= -->
+  <section class="w-full py-8 border-y border-white/[0.06] bg-black/40 backdrop-blur-md overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-4 flex items-center justify-between">
+      <span class="text-xs font-mono text-zinc-500 tracking-wider uppercase">Технологический стек производственного уровня:</span>
+      <span class="text-xs font-mono text-zinc-600 hidden sm:inline">Production Ready &bull; Scalable</span>
+    </div>
+
+    <!-- Continuous Infinite Slider -->
+    <div class="ticker-track flex items-center gap-12 opacity-70 hover:opacity-100 transition-opacity">
+      <!-- Item list duplicated for seamless loop -->
+      <div class="flex items-center gap-12 font-mono text-sm tracking-wide text-zinc-400 font-semibold">
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="atom" class="w-5 h-5 text-sky-400"></i> React 19</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="layers" class="w-5 h-5 text-white"></i> Next.js 15</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="code" class="w-5 h-5 text-blue-400"></i> TypeScript</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="terminal" class="w-5 h-5 text-yellow-400"></i> Python / FastAPI</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="server" class="w-5 h-5 text-emerald-400"></i> Node.js</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="database" class="w-5 h-5 text-sky-300"></i> PostgreSQL</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="box" class="w-5 h-5 text-blue-500"></i> Docker</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="cloud" class="w-5 h-5 text-orange-400"></i> AWS Cloud</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="sparkles" class="w-5 h-5 text-purple-400"></i> OpenAI / LLMs</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="wind" class="w-5 h-5 text-teal-400"></i> Tailwind CSS</span>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="flex items-center gap-12 font-mono text-sm tracking-wide text-zinc-400 font-semibold" aria-hidden="true">
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="atom" class="w-5 h-5 text-sky-400"></i> React 19</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="layers" class="w-5 h-5 text-white"></i> Next.js 15</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="code" class="w-5 h-5 text-blue-400"></i> TypeScript</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="terminal" class="w-5 h-5 text-yellow-400"></i> Python / FastAPI</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="server" class="w-5 h-5 text-emerald-400"></i> Node.js</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="database" class="w-5 h-5 text-sky-300"></i> PostgreSQL</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="box" class="w-5 h-5 text-blue-500"></i> Docker</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="cloud" class="w-5 h-5 text-orange-400"></i> AWS Cloud</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="sparkles" class="w-5 h-5 text-purple-400"></i> OpenAI / LLMs</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="wind" class="w-5 h-5 text-teal-400"></i> Tailwind CSS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BENTO GRID (FEATURES) ================= -->
+  <!-- Exactly matching "SEO Tool That Delivers Real Results" in the reference layout -->
+  <section id="features" class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header with Pill -->
+      <div class="space-y-4 max-w-2xl mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Инженерный подход</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Стек & архитектура, <br>
+          <span class="text-chrome">которые дают результат</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          Мы разрабатываем программное обеспечение по стандартам ведущих продуктовых компаний мира: чистая архитектура, автоматизированное тестирование и мгновенный деплой.
+        </p>
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Card 1: Interactive Dev Dashboard (7 cols) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card shimmer-hover">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  <i data-lucide="activity" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-white text-lg">Телеметрия & Производительность</h3>
+                  <p class="text-xs font-mono text-zinc-400">Real-time production benchmarks</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                100% HEALTHY
+              </span>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              <div class="bg-black/50 border border-white/5 p-4 rounded-2xl">
+                <div class="text-xs text-zinc-500 font-mono">Edge Latency</div>
+                <div class="text-xl font-bold font-mono text-white mt-1">14ms</div>
+                <div class="text-[10px] text-emerald-400 flex items-center gap-1 mt-1">
+                  <i data-lucide="arrow-down" class="w-3 h-3"></i> 99.8% p99
+                </div>
+              </div>
+              <div class="bg-black/50 border border-white/5 p-4 rounded-2xl">
+                <div class="text-xs text-zinc-500 font-mono">Lighthouse</div>
+                <div class="text-xl font-bold font-mono text-emerald-400 mt-1">100/100</div>
+                <div class="text-[10px] text-zinc-400 mt-1">SEO & Speed</div>
+              </div>
+              <div class="bg-black/50 border border-white/5 p-4 rounded-2xl">
+                <div class="text-xs text-zinc-500 font-mono">Test Coverage</div>
+                <div class="text-xl font-bold font-mono text-sky-400 mt-1">99.4%</div>
+                <div class="text-[10px] text-zinc-400 mt-1">E2E + Unit</div>
+              </div>
+              <div class="bg-black/50 border border-white/5 p-4 rounded-2xl">
+                <div class="text-xs text-zinc-500 font-mono">Uptime SLA</div>
+                <div class="text-xl font-bold font-mono text-white mt-1">99.99%</div>
+                <div class="text-[10px] text-emerald-400 mt-1">Zero Downtime</div>
+              </div>
+            </div>
+
+            <!-- Visual Chart mockup (matching the sleek curve in the reference image) -->
+            <div class="relative bg-black/60 border border-white/5 rounded-2xl p-5 overflow-hidden">
+              <div class="flex items-center justify-between text-xs text-zinc-400 mb-4 font-mono">
+                <span>Масштабируемость запросов (RPS)</span>
+                <span class="text-white font-bold">12.5k req/sec</span>
+              </div>
+              <!-- SVG Wave Curve -->
+              <svg viewBox="0 0 500 120" class="w-full h-24 overflow-visible">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,90 Q70,95 120,60 T250,40 T370,15 T500,8" fill="none" stroke="#ffffff" stroke-width="2.5" />
+                <path d="M0,90 Q70,95 120,60 T250,40 T370,15 T500,8 L500,120 L0,120 Z" fill="url(#chartGrad)" />
+                <!-- Glow points -->
+                <circle cx="250" cy="40" r="5" fill="#ffffff" class="filter drop-shadow-[0_0_8px_#fff]" />
+                <circle cx="370" cy="15" r="5" fill="#ffffff" class="filter drop-shadow-[0_0_8px_#fff]" />
+                <circle cx="500" cy="8" r="5" fill="#38bdf8" class="filter drop-shadow-[0_0_10px_#38bdf8]" />
+              </svg>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-400 mt-6 font-mono">
+            // Каждый релиз проходит строгий аудит безопасности, оптимизацию бандлов и нагрузочное тестирование.
+          </p>
+        </div>
+
+        <!-- Card 2: Interactive Terminal & Code IDE (5 cols) -->
+        <div class="lg:col-span-5 glass-card rounded-3xl p-6 flex flex-col justify-between tilt-card">
+          <div>
+            <!-- Terminal Header with Tabs -->
+            <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+              </div>
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <button class="file-tab active-tab text-white border-b-2 border-white pb-1 font-medium transition-colors" data-file="server.ts">server.ts</button>
+                <button class="file-tab text-zinc-400 hover:text-white pb-1 font-medium transition-colors" data-file="ai_agent.py">ai_agent.py</button>
+                <button class="file-tab text-zinc-400 hover:text-white pb-1 font-medium transition-colors" data-file="docker-compose.yml">docker.yml</button>
+              </div>
+            </div>
+
+            <!-- Terminal Code Window -->
+            <div class="bg-black/80 rounded-xl p-4 border border-white/5 overflow-x-auto min-h-[220px]">
+              <pre id="code-display" class="terminal-code text-zinc-300 text-xs">// Microservice API Gateway & Auth
+import { FastifyInstance } from 'fastify';
+import { DuoEngine } from '@devduo/core';
+
+export async function bootstrap(app: FastifyInstance) {
+  const engine = new DuoEngine({
+    clustering: true,
+    edgeReplication: true,
+    maxThroughputRps: 150_000
+  });
+
+  app.post('/api/v1/ship-product', async (req, reply) => {
+    const { spec, targetDeadline } = req.body;
+    const project = await engine.deployArchitecture({
+      founders: ['Imran', 'Mubin'],
+      qualityGrade: 'A+',
+      zeroLegacyGuarantee: true
+    });
+    return reply.status(200).send({ status: 'live', url: project.edgeUrl });
+  });
+}</pre>
+            </div>
+
+            <!-- Terminal Output Logs -->
+            <div id="terminal-logs" class="mt-4 p-3 bg-black/60 rounded-xl border border-white/5 max-h-28 overflow-y-auto">
+              <div class="text-zinc-500 font-mono text-xs">Готов к запуску сборки. Нажмите кнопку ниже:</div>
+            </div>
+          </div>
+
+          <!-- Run Button -->
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-zinc-500">Node v24 • Turbo CI</span>
+            <button id="run-code-btn" class="btn-secondary px-4 py-2 rounded-xl text-xs font-mono font-semibold flex items-center gap-2">
+              <i data-lucide="play" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Запустить пайплайн</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: Cloud & Integrations (5 cols) (like the Google Search Console card) -->
+        <div class="lg:col-span-5 glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card shimmer-hover">
+          <div>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                <i data-lucide="network" class="w-5 h-5 text-white"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-lg">Глубокие интеграции</h3>
+                <p class="text-xs font-mono text-zinc-400">Ecosystem & Cloud Connectors</p>
+              </div>
+            </div>
+
+            <p class="text-zinc-400 text-sm mb-6">
+              Подключаем платежные шлюзы, ИИ-модели, CRM, Telegram-ботов и распределенную облачную инфраструктуру за считанные часы.
+            </p>
+
+            <!-- Integration Tiles -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-black/50 border border-white/10 p-3.5 rounded-2xl flex items-center gap-3">
+                <i data-lucide="github" class="w-5 h-5 text-white"></i>
+                <span class="text-xs font-medium text-zinc-300">CI/CD GitHub</span>
+              </div>
+              <div class="bg-black/50 border border-white/10 p-3.5 rounded-2xl flex items-center gap-3">
+                <i data-lucide="credit-card" class="w-5 h-5 text-emerald-400"></i>
+                <span class="text-xs font-medium text-zinc-300">Stripe & Платежи</span>
+              </div>
+              <div class="bg-black/50 border border-white/10 p-3.5 rounded-2xl flex items-center gap-3">
+                <i data-lucide="bot" class="w-5 h-5 text-purple-400"></i>
+                <span class="text-xs font-medium text-zinc-300">OpenAI & LLMs</span>
+              </div>
+              <div class="bg-black/50 border border-white/10 p-3.5 rounded-2xl flex items-center gap-3">
+                <i data-lucide="server" class="w-5 h-5 text-orange-400"></i>
+                <span class="text-xs font-medium text-zinc-300">AWS / Vercel Edge</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-2 text-xs font-mono text-emerald-400">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            <span>30+ готовых enterprise-интеграций</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Floating Architectural Advantages (7 cols) (like floating pills in reference) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                <i data-lucide="sparkle" class="w-5 h-5 text-white"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-lg">Стандарты качества разработки</h3>
+                <p class="text-xs font-mono text-zinc-400">Архитектурная чистота и надежность</p>
+              </div>
+            </div>
+
+            <!-- Floating Slanted Pills (visual echo of reference screenshot) -->
+            <div class="flex flex-wrap gap-3 my-4 py-2">
+              <div class="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs font-mono font-medium text-white shadow-lg transform -rotate-1 hover:rotate-0 transition-transform">
+                ✦ Zero-Legacy Code Guarantee
+              </div>
+              <div class="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs font-mono font-medium text-white shadow-lg transform rotate-2 hover:rotate-0 transition-transform">
+                ✦ Строгая Type-Safety (TypeScript/Pydantic)
+              </div>
+              <div class="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs font-mono font-medium text-white shadow-lg transform -rotate-2 hover:rotate-0 transition-transform">
+                ✦ Прямой чат с инженерами (No Managers)
+              </div>
+              <div class="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs font-mono font-medium text-white shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                ✦ Автономная CI/CD доставка кода
+              </div>
+              <div class="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs font-mono font-medium text-white shadow-lg transform -rotate-1 hover:rotate-0 transition-transform">
+                ✦ Полная передача всех прав и исходников
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-400 mt-4 font-mono">
+            // Вы получаете исходный код, который легко масштабировать, поддерживать и передавать внутренним командам.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ACHIEVEMENTS & NUMBERS ================= -->
+  <!-- Exactly matching "Proven SEO Results You Can Trust" in the reference layout -->
+  <section id="achievements" class="py-24 md:py-32 relative border-t border-white/[0.06] bg-[#020203]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Text & Proof -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-zinc-300"></i>
+            <span>Достижения & Цифры</span>
+          </div>
+          
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Результаты в коде, <br>
+            <span class="text-chrome">которым доверяют</span>
+          </h2>
+
+          <p class="text-zinc-400 text-base sm:text-lg leading-relaxed">
+            От ранних стартапов до действующих IT-бизнесов — мы проектируем отказоустойчивые системы, которые выдерживают нагрузки, приносят прибыль и не ломаются при масштабировании.
+          </p>
+
+          <!-- Duo Workstation Image embed -->
+          <div class="pt-4">
+            <div class="rounded-3xl p-1 bg-gradient-to-b from-white/15 to-transparent border border-white/10 overflow-hidden shadow-2xl">
+              <img src="assets/duo-workstation.jpg" alt="Duo Workstation with Laptops" class="w-full h-auto rounded-2xl object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <p class="text-[11px] font-mono text-zinc-500 mt-3 text-center">
+              // Два рабочих места — полный стек от системной архитектуры до пиксель-перфектного UI.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right: Isometric Floating Stat Cards (Visual Echo of 200%, 50K+ in reference) -->
+        <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+            <div class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white group-hover:scale-105 transition-transform">
+              3.5x
+            </div>
+            <div class="text-sm font-semibold text-white mt-3">Ускорение Time-to-Market</div>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Запуск полноценного боевого MVP за недели вместо долгих месяцев классических агентств.
+            </p>
+            <div class="absolute top-4 right-4 text-zinc-600 group-hover:text-white transition-colors">
+              <i data-lucide="trending-up" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+            <div class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white group-hover:scale-105 transition-transform">
+              100K+
+            </div>
+            <div class="text-sm font-semibold text-white mt-3">Активных пользователей</div>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Суммарно обслуживают архитектуры и сервисы, разработанные нашими руками.
+            </p>
+            <div class="absolute top-4 right-4 text-zinc-600 group-hover:text-white transition-colors">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+            <div class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white group-hover:scale-105 transition-transform">
+              99.99%
+            </div>
+            <div class="text-sm font-semibold text-white mt-3">SLA надежности</div>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Бесперебойная работа в облаке с автоматическим отказоустойчивым восстановлением.
+            </p>
+            <div class="absolute top-4 right-4 text-zinc-600 group-hover:text-white transition-colors">
+              <i data-lucide="shield" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+            <div class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white group-hover:scale-105 transition-transform">
+              0%
+            </div>
+            <div class="text-sm font-semibold text-white mt-3">Бюрократии и наценок</div>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Прямая коммуникация в Telegram: вы общаетесь лично с теми, кто пишет каждую строчку кода.
+            </p>
+            <div class="absolute top-4 right-4 text-zinc-600 group-hover:text-white transition-colors">
+              <i data-lucide="zap" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PRICING SECTION ================= -->
+  <!-- Featuring the exact 3-card layout with the high-contrast WHITE featured card in the middle -->
+  <section id="pricing" class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="wallet" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Прозрачные условия</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Гибкие форматы сотрудничества
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          Никаких скрытых платежей. Фиксированная стоимость, четкие дедлайны и еженедельные демонстрации работающего продукта.
+        </p>
+      </div>
+
+      <!-- 3 Pricing Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        
+        <!-- Tier 1: Basic / MVP Sprint -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-400">Спринт для старта</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/10 text-zinc-300">1–2 недели</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-4">MVP Спринт</h3>
+            <p class="text-xs text-zinc-400 mt-2">
+              Быстрый вывод первой версии продукта на рынок для валидации спроса и первых продаж.
+            </p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold font-mono text-white">от 39 000 ₽</span>
+              <span class="text-xs text-zinc-500 block mt-1">Фиксированная цена под ключ</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-zinc-300 border-t border-white/10 pt-6">
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Интерактивный UI/UX прототип</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>React / Next.js веб-приложение</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>База данных PostgreSQL & Авторизация</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Развертывание на продакшен-сервер</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>14 дней гарантийной поддержки</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="open-contact-modal btn-secondary w-full py-3.5 rounded-2xl text-xs font-bold tracking-wide mt-8">
+            Выбрать MVP
+          </button>
+        </div>
+
+        <!-- Tier 2: Featured Full-Cycle (WHITE CARD like the middle $19 card in reference!) -->
+        <div class="featured-white-card rounded-3xl p-8 flex flex-col justify-between tilt-card relative transform lg:-translate-y-3">
+          
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-black text-white text-[10px] font-mono uppercase tracking-widest font-bold shadow-lg">
+            ★ Выбор стартапов & бизнеса
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-600 font-bold">Полный цикл</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-zinc-200 text-zinc-800 font-semibold">3–4 недели</span>
+            </div>
+            <h3 class="text-2xl font-black text-zinc-950 mt-4">Продукт под ключ</h3>
+            <p class="text-xs text-zinc-600 mt-2 font-medium">
+              Масштабируемый сервис корпоративного уровня с продуманной архитектурой, мобильной адаптацией и AI.
+            </p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold font-mono text-zinc-950">от 85 000 ₽</span>
+              <span class="text-xs text-zinc-500 block mt-1">Полный цикл: от дизайна до High-load</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-zinc-800 font-medium border-t border-zinc-200 pt-6">
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Индивидуальный дизайн-система в Figma</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Сложная микросервисная архитектура</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Платежные шлюзы, биллинг & чеки</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>Интеграция нейросетей (OpenAI / Claude / Локальные)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>CI/CD автоматизация и Docker кластеризация</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-zinc-950 flex-shrink-0"></i>
+                <span>30 дней плотной технической поддержки</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="open-contact-modal w-full py-4 rounded-2xl bg-black text-white text-xs font-bold tracking-wide hover:bg-zinc-800 transition-colors shadow-xl mt-8 flex items-center justify-center gap-2">
+            <span>Обсудить проект под ключ</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Tier 3: Dedicated Engineering Team -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-400">Партнерство</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/10 text-zinc-300">Помесячно</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-4">Dedicated Team</h3>
+            <p class="text-xs text-zinc-400 mt-2">
+              Два senior-разработчика работают как ваш выделенный технический отдел и CTO.
+            </p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold font-mono text-white">от 55 000 ₽</span>
+              <span class="text-xs text-zinc-500 block mt-1">В месяц за двоих инженеров</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-zinc-300 border-t border-white/10 pt-6">
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Полноценное погружение в продукт</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Неограниченный спринт-бэклог фич</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Ежедневные стендапы и отчеты в Telegram</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Отказоустойчивое дежурство 24/7</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Управление облачной инфраструктурой</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="open-contact-modal btn-secondary w-full py-3.5 rounded-2xl text-xs font-bold tracking-wide mt-8">
+            Начать сотрудничество
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Interactive Calculator Section -->
+      <div id="calculator" class="mt-20 max-w-4xl mx-auto glass-card rounded-3xl p-8 border-2 border-sky-500/30 shadow-[0_0_60px_rgba(56,189,248,0.12)] relative scroll-mt-28">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 font-mono text-[11px] mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 animate-pulse text-sky-400"></i>
+          <span>ОНЛАЙН-РАСЧЕТ & ГЕНЕРАТОР PDF-СМЕТЫ</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+          <div>
+            <h4 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="calculator" class="w-6 h-6 text-sky-400"></i>
+              Калькулятор стоимости вашего проекта
+            </h4>
+            <p class="text-xs text-zinc-400 mt-1">Выберите стек и получите готовое официальное коммерческое предложение в PDF</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <div id="calc-price" class="text-3xl font-black font-mono text-white text-gradient-sky">от 39 000 ₽</div>
+            <div id="calc-time" class="text-xs font-mono text-emerald-400 font-bold">Срок: 1–2 недели</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+          <!-- 1. Тип продукта -->
+          <div class="custom-select-wrapper relative" data-target="calc-type">
+            <label class="block text-xs font-mono text-zinc-400 mb-2 uppercase">Тип продукта</label>
+            <button type="button" class="custom-select-btn w-full text-white text-xs rounded-2xl p-3.5 flex items-center justify-between transition-all focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer">
+              <span class="selected-text font-medium flex items-center gap-2">
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-sky-400"></i>
+                <span>MVP Веб-сервис (SaaS)</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 chevron-icon transition-transform duration-200"></i>
+            </button>
+            <div class="custom-select-dropdown hidden absolute left-0 right-0 top-full mt-2 rounded-2xl p-1.5 z-30 space-y-1">
+              <div class="custom-option selected flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer" data-value="39000" data-label="MVP Веб-сервис (SaaS)" data-icon="globe" data-icon-color="text-sky-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="globe" class="w-3.5 h-3.5 text-sky-400"></i>
+                  <span>MVP Веб-сервис (SaaS)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="75000" data-label="Комплексная платформа / Портал" data-icon="layers" data-icon-color="text-purple-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="layers" class="w-3.5 h-3.5 text-purple-400"></i>
+                  <span>Комплексная платформа / Портал</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="55000" data-label="Мобильное приложение (iOS/Android)" data-icon="smartphone" data-icon-color="text-emerald-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="smartphone" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span>Мобильное приложение (iOS/Android)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="25000" data-label="AI-бот / Telegram Ecosystem / Лендинг" data-icon="bot" data-icon-color="text-yellow-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="bot" class="w-3.5 h-3.5 text-yellow-400"></i>
+                  <span>AI-бот / Telegram / Лендинг</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+            </div>
+            <input type="hidden" id="calc-type" value="39000">
+          </div>
+
+          <!-- 2. Масштаб & Дизайн -->
+          <div class="custom-select-wrapper relative" data-target="calc-scope">
+            <label class="block text-xs font-mono text-zinc-400 mb-2 uppercase">Масштаб & Дизайн</label>
+            <button type="button" class="custom-select-btn w-full text-white text-xs rounded-2xl p-3.5 flex items-center justify-between transition-all focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer">
+              <span class="selected-text font-medium flex items-center gap-2">
+                <i data-lucide="file-code" class="w-3.5 h-3.5 text-zinc-400"></i>
+                <span>Есть готовый дизайн / ТЗ</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 chevron-icon transition-transform duration-200"></i>
+            </button>
+            <div class="custom-select-dropdown hidden absolute left-0 right-0 top-full mt-2 rounded-2xl p-1.5 z-30 space-y-1">
+              <div class="custom-option selected flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer" data-value="1.0" data-label="Есть готовый дизайн / ТЗ" data-icon="file-code" data-icon-color="text-zinc-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="file-code" class="w-3.5 h-3.5 text-zinc-400"></i>
+                  <span>Есть готовый дизайн / ТЗ</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1.3" data-label="Разработка UI/UX с нуля (+30%)" data-icon="palette" data-icon-color="text-pink-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="palette" class="w-3.5 h-3.5 text-pink-400"></i>
+                  <span>Разработка UI/UX с нуля (+30%)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1.6" data-label="Комплексный enterprise проект (+60%)" data-icon="cpu" data-icon-color="text-blue-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-400"></i>
+                  <span>Комплексный enterprise (+60%)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+            </div>
+            <input type="hidden" id="calc-scope" value="1.0">
+          </div>
+
+          <!-- 3. Срочность -->
+          <div class="custom-select-wrapper relative" data-target="calc-urgency">
+            <label class="block text-xs font-mono text-zinc-400 mb-2 uppercase">Срочность</label>
+            <button type="button" class="custom-select-btn w-full text-white text-xs rounded-2xl p-3.5 flex items-center justify-between transition-all focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer">
+              <span class="selected-text font-medium flex items-center gap-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-400"></i>
+                <span>Обычный темп</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 chevron-icon transition-transform duration-200"></i>
+            </button>
+            <div class="custom-select-dropdown hidden absolute left-0 right-0 top-full mt-2 rounded-2xl p-1.5 z-30 space-y-1">
+              <div class="custom-option selected flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer" data-value="1.0" data-label="Обычный темп" data-icon="clock" data-icon-color="text-zinc-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-400"></i>
+                  <span>Обычный темп</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon"></i>
+              </div>
+              <div class="custom-option flex items-center justify-between p-2.5 rounded-xl text-xs cursor-pointer text-zinc-300" data-value="1.25" data-label="Срочно (Ускоренный релиз)" data-icon="zap" data-icon-color="text-amber-400">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>Срочно (Ускоренный релиз)</span>
+                </div>
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 check-icon hidden"></i>
+              </div>
+            </div>
+            <input type="hidden" id="calc-urgency" value="1.0">
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs text-zinc-500 font-mono">* Финальная оценка фиксируется в договоре после 30-минутного созвона.</span>
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <button id="download-pdf-btn" type="button" class="open-proposal-btn w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold bg-sky-500/20 hover:bg-sky-500/30 border-2 border-sky-400 hover:border-sky-300 text-sky-200 hover:text-white transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-lg shadow-sky-500/20 group">
+              <i data-lucide="file-down" class="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform"></i>
+              <span class="tracking-wide text-white font-bold">📄 Скачать смету (PDF)</span>
+            </button>
+            <button class="open-contact-modal btn-primary w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+              <span>Обсудить этот расчет</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT US (THE DUO) ================= -->
+  <!-- Tailored directly for the user and their friend: "нас с моим другом типо компания целая" -->
+  <section id="about" class="py-24 md:py-32 relative border-t border-white/[0.06] bg-[#020203]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="space-y-4 max-w-2xl mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="code-2" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Основатели & Инженеры</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Кто за этим стоит: <br>
+          <span class="text-chrome">Команда из двух друзей</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          Мы объединили экспертизу в системном бэкенде и продуктовом фронтенде. Два слаженных инженера работают быстрее и надежнее раздутого штата с десятком менеджеров.
+        </p>
+      </div>
+
+      <!-- Two Founders Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+        
+        <!-- Founder 1 -->
+        <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-900 border border-white/20 p-1 flex items-center justify-center">
+              <div class="w-full h-full bg-[#0a0a0f] rounded-xl flex items-center justify-center text-2xl font-mono font-bold text-white">
+                👨‍💻
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Имран (Lead Architect)</h3>
+              <p class="text-xs font-mono text-zinc-400 mt-1">Backend, Cloud & High-load Systems</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] font-mono text-zinc-300">6+ лет опыта</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-[10px] font-mono text-emerald-400">High-Load</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+            Отвечает за архитектуру баз данных, микросервисы, отказоустойчивость, API шлюзы и сетевую безопасность. Превращает сложные бизнес-процессы в надежный и чистый код.
+          </p>
+
+          <div class="space-y-2 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono text-zinc-500 uppercase">Специализация:</div>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-300">
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Python</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">PostgreSQL</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Docker & K8s</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">FastAPI</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Redis</span>
+            </div>
+            <div class="pt-2">
+              <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 text-xs font-mono transition-all border border-sky-500/20 hover:border-sky-500/40">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Связаться: @rolldurov</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="glass-card rounded-3xl p-8 tilt-card relative overflow-hidden group">
+          <div class="flex items-center gap-5 mb-6">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-900 border border-white/20 p-1 flex items-center justify-center">
+              <div class="w-full h-full bg-[#0a0a0f] rounded-xl flex items-center justify-center text-2xl font-mono font-bold text-white">
+                🚀
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Мубин (Product Engineer)</h3>
+              <p class="text-xs font-mono text-zinc-400 mt-1">Frontend, Mobile Apps & UI/UX Engineering</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] font-mono text-zinc-300">5+ лет опыта</span>
+                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-[10px] font-mono text-sky-400">UI/UX Polish</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+            Отвечает за визуальный интерфейс, анимации, скорость отклика в браузерах и на смартфонах. Делает так, чтобы продуктом было приятно и удобно пользоваться миллионам людей.
+          </p>
+
+          <div class="space-y-2 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono text-zinc-500 uppercase">Специализация:</div>
+            <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-300">
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">TypeScript</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">React & Next.js</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Tailwind CSS</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">React Native</span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/50 border border-white/10">Three.js</span>
+            </div>
+            <div class="pt-2">
+              <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 text-xs font-mono transition-all border border-sky-500/20 hover:border-sky-500/40">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Связаться: @rolldurov</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Why Duo is Better than Agency Comparison Banner -->
+      <div class="max-w-5xl mx-auto glass-card rounded-3xl p-8 border border-white/15">
+        <h4 class="text-lg font-bold text-white mb-6 text-center">Почему дуэт опытных инженеров побеждает агентство из 20 человек?</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <div class="text-emerald-400 font-bold font-mono">01 / Скорость коммуникации</div>
+            <p class="text-zinc-400">
+              В агентстве ваш запрос идет через аккаунт-менеджера, проджекта, тимлида к джуну. У нас вы сразу говорите с автором кода.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <div class="text-emerald-400 font-bold font-mono">02 / Честное ценообразование</div>
+            <p class="text-zinc-400">
+              Вы платите только за реальные часы программирования, а не за аренду офиса в Сити, зарплаты рекрутеров и кофе-машины.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <div class="text-emerald-400 font-bold font-mono">03 / Персональная ответственность</div>
+            <p class="text-zinc-400">
+              Мы ставим свою репутацию под каждый релиз. Наш код не бросают — мы лично отвечаем за результат и стабильность.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <!-- Matching "What People Say About Us" in reference -->
+  <section class="py-24 relative border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>Отзывы клиентов</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Что говорят фаундеры
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        
+        <!-- Review 1 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed italic">
+              «Парни переписали наш старый бэкенд на FastAPI и подняли Next.js витрину за 4 недели. Скорость отклика упала со 180ms до 14ms. Инвесторы были в восторге от гладкости работы интерфейса!»
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-white">
+              АК
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Артем Кузнецов</div>
+              <div class="text-[10px] text-zinc-500 font-mono">CEO, Fintech Platform</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed italic">
+              «Лучший опыт работы с подрядчиками за 7 лет в бизнесе. Никакой воды, четкие еженедельные демо. Наш AI-стартап запустился на 2 недели раньше запланированного дедлайна.»
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-white">
+              ИС
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Илья Семенов</div>
+              <div class="text-[10px] text-zinc-500 font-mono">Co-Founder, SaaS Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between tilt-card">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed italic">
+              «Работали в формате Dedicated Team. За 3 месяца закрыли весь полугодовой технический бэклог. Код чистый, понятный, любой новый разработчик входит в проект за один день.»
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-white">
+              ДВ
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Денис Волков</div>
+              <div class="text-[10px] text-zinc-500 font-mono">CTO, EdTech Network</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FAQ SECTION ================= -->
+  <!-- Matching "Your Questions Answered" in reference -->
+  <section id="faq" class="py-24 relative border-t border-white/[0.06]">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <div class="text-center mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pill text-xs font-mono text-zinc-300">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-zinc-300"></i>
+          <span>FAQ</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Ответы на частые вопросы
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item glass-card rounded-2xl overflow-hidden">
+          <button class="faq-button w-full p-6 text-left flex items-center justify-between text-sm font-bold text-white hover:text-zinc-200 transition-colors">
+            <span>Как вы вдвоем справляетесь с объемом работ целой студии?</span>
+            <span class="faq-icon text-xl text-zinc-400 transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-xs text-zinc-400 leading-relaxed border-t border-white/5 pt-4">
+            В обычных агентствах до 60% времени уходит на внутренние согласования, созвоны менеджеров и переделывание кода после джуниоров. У нас нет этих звеньев: мы senior-разработчики с готовой библиотекой архитектурных шаблонов, CI/CD автоматизацией и ИИ-инструментами, поэтому пишем боевой код в 3–4 раза быстрее.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item glass-card rounded-2xl overflow-hidden">
+          <button class="faq-button w-full p-6 text-left flex items-center justify-between text-sm font-bold text-white hover:text-zinc-200 transition-colors">
+            <span>Кому принадлежат права на исходный код и доступы?</span>
+            <span class="faq-icon text-xl text-zinc-400 transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-xs text-zinc-400 leading-relaxed border-t border-white/5 pt-4">
+            100% прав на весь код, дизайн, базы данных и облачную инфраструктуру принадлежат вам. Репозитории заводятся в вашей организации GitHub/GitLab, а сервера настраиваются в вашем облачном аккаунте.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item glass-card rounded-2xl overflow-hidden">
+          <button class="faq-button w-full p-6 text-left flex items-center justify-between text-sm font-bold text-white hover:text-zinc-200 transition-colors">
+            <span>Как организован процесс оплаты и договор?</span>
+            <span class="faq-icon text-xl text-zinc-400 transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-xs text-zinc-400 leading-relaxed border-t border-white/5 pt-4">
+            Работаем официально по договору (ИП/Самозанятость или через зарубежные структуры/крипту). Оплата делится поэтапно: предоплата за спринт (обычно 30–50%), промежуточная демонстрация и финальный расчет после сдачи продукта.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item glass-card rounded-2xl overflow-hidden">
+          <button class="faq-button w-full p-6 text-left flex items-center justify-between text-sm font-bold text-white hover:text-zinc-200 transition-colors">
+            <span>Что будет после сдачи проекта? Вы остаетесь на связи?</span>
+            <span class="faq-icon text-xl text-zinc-400 transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-xs text-zinc-400 leading-relaxed border-t border-white/5 pt-4">
+            Да! В каждый тариф включен период гарантийной поддержки (от 14 до 30 дней) для исправления любых обнаруженных недочетов. Также мы предлагаем формат ежемесячной поддержки или передаем проект вашей in-house команде с подробной документацией.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CTA BANNER ================= -->
+  <section class="py-20 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="glass-card rounded-3xl p-10 sm:p-16 text-center relative overflow-hidden border border-white/20">
+        <!-- Ambient light in CTA -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Готовы запустить ваш продукт на полную мощность?
+          </h2>
+          <p class="text-zinc-400 text-sm sm:text-base">
+            Напишите нам задачу в Telegram — мы бесплатно разберем архитектуру, предложим оптимальный стек и сориентируем по точным срокам в течение 2 часов.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <button class="open-contact-modal btn-primary px-8 py-4 rounded-full text-sm font-bold flex items-center gap-3">
+              <span>Обсудить проект с инженерами</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="btn-secondary px-6 py-4 rounded-full text-xs font-mono text-zinc-200 flex items-center gap-2 hover:border-sky-400/40 hover:text-white transition-all shadow-lg hover:shadow-sky-500/10">
+              <i data-lucide="send" class="w-4 h-4 text-sky-400"></i>
+              <span>Написать в Telegram (@rolldurov)</span>
+            </a>
+            <button class="copy-trigger btn-secondary px-4 py-4 rounded-full text-xs font-mono text-zinc-400 hover:text-white transition-all" data-copy-text="@rolldurov" title="Скопировать юзернейм">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER WITH MASSIVE OUTLINED BRAND ================= -->
+  <!-- Exactly matching "SEOTalos" at the bottom of the reference layout -->
+  <footer class="pt-16 pb-12 border-t border-white/[0.08] bg-[#020203] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-white/[0.08]">
+        
+        <!-- Left Brand Col -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center font-mono font-black text-white text-sm">
+              D²
+            </div>
+            <span class="font-extrabold text-white tracking-wider text-lg">DEVDUO</span>
+          </div>
+          <p class="text-xs text-zinc-400 max-w-sm leading-relaxed">
+            Инженерная студия разработки. Создаем веб-продукты, мобильные экосистемы и ИИ-архитектуру с персональным вниманием к каждому байту кода.
+          </p>
+          <div class="text-[11px] font-mono text-zinc-500">
+            // Based in Cloud • Available Globally
+          </div>
+        </div>
+
+        <!-- Links Col 1 -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">Навигация</div>
+          <ul class="space-y-2 text-xs text-zinc-500">
+            <li><a href="#features" class="hover:text-white transition-colors">Стек & Решения</a></li>
+            <li><a href="#achievements" class="hover:text-white transition-colors">Кейсы</a></li>
+            <li><a href="#pricing" class="hover:text-white transition-colors">Тарифы</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">О нас</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 2 -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">Стек</div>
+          <ul class="space-y-2 text-xs text-zinc-500">
+            <li><span class="hover:text-zinc-300">Next.js & React</span></li>
+            <li><span class="hover:text-zinc-300">FastAPI & Python</span></li>
+            <li><span class="hover:text-zinc-300">PostgreSQL & Redis</span></li>
+            <li><span class="hover:text-zinc-300">Docker & K8s</span></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 3: Direct Contacts -->
+        <div class="md:col-span-3 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">Контакты</div>
+          <div class="space-y-2 text-xs text-zinc-400 font-mono">
+            <div class="flex items-center gap-2">
+              <i data-lucide="send" class="w-3.5 h-3.5 text-sky-400"></i>
+              <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">@rolldurov (Telegram)</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span class="copy-trigger cursor-pointer hover:text-white transition-colors" data-copy-text="hello@devduo.dev">hello@devduo.dev</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MASSIVE OUTLINED BRAND TYPOGRAPHY (matching SEOTalos in screenshot) -->
+      <div class="pt-12 pb-6 text-center select-none">
+        <div class="text-outline-brand text-6xl sm:text-9xl md:text-[140px] lg:text-[190px] leading-none uppercase tracking-tighter cursor-default">
+          DEVDUO
+        </div>
+      </div>
+
+      <!-- Copyright Sub-bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-600 pt-6">
+        <div>&copy; 2026 DEVDUO Engineering Studio. Все права защищены.</div>
+        <div class="flex items-center gap-4">
+          <!-- Leads Viewer Button for Founders -->
+          <button id="open-leads-btn" class="px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center gap-2 cursor-pointer shadow-md">
+            <i data-lucide="inbox" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Входящие заявки</span>
+            <span id="leads-count-badge" class="px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">0</span>
+          </button>
+          <a href="#" class="hover:text-zinc-400">Privacy Policy</a>
+          <a href="#" class="hover:text-zinc-400">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= CONTACT / BOOKING MODAL ================= -->
+  <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl hidden">
+    <div class="glass-card rounded-3xl p-8 max-w-lg w-full border border-white/20 relative shadow-2xl">
+      
+      <!-- Close Button -->
+      <button id="close-modal-btn" class="absolute top-6 right-6 text-zinc-400 hover:text-white p-1 rounded-lg transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="space-y-2 mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-pill text-[11px] font-mono text-zinc-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Отвечаем в течение 15-30 минут</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white">Обсудить проект с инженерами</h3>
+        <p class="text-xs text-zinc-400">
+          Расскажите кратко о вашей идее или оставьте контакт в Telegram — мы свяжемся с вами для предметного обсуждения.
+        </p>
+      </div>
+
+      <form id="modal-contact-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">Ваш Telegram или Email</label>
+          <input type="text" id="modal-contact-input" required maxlength="100" autocomplete="off" placeholder="@username или name@company.com" class="w-full bg-black/70 border border-white/15 rounded-xl px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white/40">
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">О проекте / Задачи</label>
+          <textarea id="modal-project-input" rows="3" maxlength="2000" placeholder="Нужен MVP маркетплейса, интеграция ИИ, доработка текущего приложения..." class="w-full bg-black/70 border border-white/15 rounded-xl px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white/40"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+          <span>Отправить заявку</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+      <div class="mt-6 pt-4 border-t border-white/10 text-center">
+        <span class="text-[11px] text-zinc-500 font-mono">Или напишите напрямую в Telegram:</span>
+        <div class="mt-2 flex items-center justify-center gap-2">
+          <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-mono text-sky-400 hover:text-sky-300 font-bold px-4 py-2 rounded-xl bg-sky-500/10 border border-sky-500/25 hover:border-sky-500/40 transition-all">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>@rolldurov</span>
+          </a>
+          <button type="button" class="copy-trigger p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white transition-all cursor-pointer" data-copy-text="@rolldurov" title="Скопировать юзернейм">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= INCOMING LEADS MODAL (FOR FOUNDERS) ================= -->
+  <div id="leads-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-2xl hidden">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full border border-white/20 relative shadow-2xl max-h-[90vh] flex flex-col">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+            <i data-lucide="inbox" class="w-5 h-5 text-emerald-400"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Входящие заявки клиентов</h3>
+            <p class="text-xs text-zinc-400 font-mono">Сохраняются локально в leads.json</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="export-leads-csv-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-mono cursor-pointer" title="Экспорт в CSV / Excel">
+            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span class="hidden sm:inline">Экспорт CSV</span>
+          </button>
+          <button id="refresh-leads-btn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition-colors cursor-pointer" title="Обновить список">
+            <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+          </button>
+          <button id="close-leads-btn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Leads List Container -->
+      <div id="leads-list" class="my-4 overflow-y-auto space-y-3 flex-1 pr-1 max-h-[55vh]">
+        <div class="text-center py-8 text-zinc-500 text-xs font-mono">Загрузка заявок...</div>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-zinc-400">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Файл: devduo-agency/leads.json</span>
+        </div>
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline font-semibold">
+          Telegram: @rolldurov
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= COMMERCIAL PROPOSAL / PDF MODAL ================= -->
+  <div id="proposal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-2xl hidden">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full border border-white/20 relative shadow-2xl max-h-[92vh] flex flex-col">
+      
+      <!-- Top Action Bar -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center">
+            <i data-lucide="file-check" class="w-5 h-5 text-sky-400"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Коммерческое предложение</h3>
+            <p class="text-xs text-zinc-400 font-mono" id="proposal-meta-id">DEVDUO-KP-2026</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="print-proposal-btn" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Печать / Сохранить в PDF</span>
+          </button>
+          <button id="close-proposal-btn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Proposal Sheet -->
+      <div id="proposal-printable-sheet" class="my-4 overflow-y-auto space-y-5 flex-1 pr-2 max-h-[65vh] bg-[#08080c] p-6 rounded-2xl border border-white/10 font-sans text-xs">
+        
+        <!-- Document Header -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-white/10">
+          <div>
+            <div class="text-xl font-extrabold text-white tracking-wider flex items-center gap-2">
+              <span>DEVDUO</span>
+              <span class="text-sky-400 font-mono text-sm">D²</span>
+            </div>
+            <p class="text-zinc-400 text-[11px] font-mono mt-0.5">Инженерная студия двух Senior-разработчиков</p>
+          </div>
+          <div class="text-left sm:text-right font-mono text-[11px] text-zinc-400">
+            <div>Дата: <span id="proposal-date" class="text-white">20.09.2026</span></div>
+            <div>Статус: <span class="text-emerald-400 font-semibold">Готово к подписанию</span></div>
+            <div>Контакты: <span class="text-sky-400">@rolldurov</span></div>
+          </div>
+        </div>
+
+        <!-- Scope & Estimate Summary -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">Параметры проекта</span>
+            <div class="text-white font-semibold text-sm" id="proposal-product-type">MVP Веб-сервис (SaaS)</div>
+            <div class="text-zinc-400 text-[11px] mt-1" id="proposal-scope-text">С готовым ТЗ / дизайном</div>
+            <div class="text-zinc-400 text-[11px]" id="proposal-urgency-text">Обычный темп разработки</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 flex flex-col justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">Смета и длительность</span>
+            <div class="text-2xl font-black font-mono text-white" id="proposal-price">от 39 000 ₽</div>
+            <div class="text-emerald-400 font-mono text-[11px]" id="proposal-time">Срок реализации: 1–2 недели</div>
+          </div>
+        </div>
+
+        <!-- What is included -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+            Состав работ и спринты:
+          </h4>
+          <div class="space-y-2 font-mono text-[11px]">
+            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2.5 text-zinc-300">
+              <span class="text-sky-400 font-bold">01.</span>
+              <div>
+                <strong class="text-white">Архитектура & Data Modeling:</strong> проектирование схемы БД, API-контрактов и безопасной структуры сервиса.
+              </div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2.5 text-zinc-300">
+              <span class="text-sky-400 font-bold">02.</span>
+              <div>
+                <strong class="text-white">Fullstack-разработка:</strong> быстрая сборка интерфейса (Next.js/React) и надежного бэкенда (FastAPI/Node.js).
+              </div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2.5 text-zinc-300">
+              <span class="text-sky-400 font-bold">03.</span>
+              <div>
+                <strong class="text-white">Интеграции & Платежи:</strong> Telegram-боты, платежные шлюзы, OpenAI API или внешние CRM.
+              </div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2.5 text-zinc-300">
+              <span class="text-sky-400 font-bold">04.</span>
+              <div>
+                <strong class="text-white">DevOps & Безопасность:</strong> контейнеризация Docker, настройка CI/CD, SSL, защита от DoS и XSS.
+              </div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2.5 text-zinc-300">
+              <span class="text-sky-400 font-bold">05.</span>
+              <div>
+                <strong class="text-white">Гарантия & Поддержка:</strong> 14 дней бесплатного гарантийного сопровождения после релиза.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Signatures -->
+        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] font-mono text-zinc-400">
+          <div>
+            <span class="text-zinc-500">Исполнители:</span> Имран & Мубин (Senior Engineers)
+          </div>
+          <div>
+            <span class="text-zinc-500">Связь в Telegram:</span> <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">@rolldurov</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Info -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400">
+        <span>Нажмите «Печать / Сохранить в PDF» для сохранения официального документа</span>
+        <button class="open-contact-modal text-sky-400 hover:underline font-semibold cursor-pointer">
+          Обсудить смету с инженерами &rarr;
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= LIVE TELEGRAM FLOATING WIDGET ================= -->
+  <div id="live-telegram-widget" class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    
+    <!-- Expanded Chat Popup Card -->
+    <div id="live-chat-popup" class="hidden mb-3 w-[330px] sm:w-[370px] glass-card rounded-3xl p-5 border border-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-all duration-300 transform origin-bottom-right">
+      
+      <!-- Card Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="relative flex -space-x-2 overflow-hidden p-0.5">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 border-2 border-black flex items-center justify-center text-xs font-bold text-white shadow-md">
+              И
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-zinc-200 to-zinc-400 border-2 border-black flex items-center justify-center text-xs font-bold text-black shadow-md">
+              М
+            </div>
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-black"></span>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>Имран & Мубин</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-zinc-300">DEVDUO</span>
+            </div>
+            <p class="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              В сети в Telegram &bull; Ответ 5-15 мин
+            </p>
+          </div>
+        </div>
+
+        <button id="close-live-chat-btn" class="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Message Cloud -->
+      <div class="my-4 space-y-2.5">
+        <div class="bg-white/[0.04] border border-white/10 p-3.5 rounded-2xl text-xs text-zinc-200 leading-relaxed font-sans shadow-inner">
+          <p class="text-zinc-300">
+            Привет! 👋 Мы на связи и готовы бесплатно рассчитать архитектуру и смету для вашего проекта. Напишите нам прямо сейчас в Telegram:
+          </p>
+          <div class="mt-2 text-[10px] font-mono text-zinc-500 text-right">
+            только что
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Action Buttons -->
+      <div class="space-y-2">
+        <a href="https://t.me/rolldurov" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl text-xs font-bold bg-sky-500 hover:bg-sky-400 text-white flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition-all cursor-pointer">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Написать напрямую @rolldurov</span>
+        </a>
+
+        <button type="button" class="open-proposal-btn w-full py-2.5 px-4 rounded-xl text-xs font-bold bg-sky-500/15 hover:bg-sky-500/25 border border-sky-400/40 text-sky-200 hover:text-white flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <i data-lucide="file-down" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>📄 Скачать смету (PDF)</span>
+        </button>
+
+        <button class="open-contact-modal w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Оставить заявку на сайте</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Floating Trigger Capsule / Pill Button -->
+    <button id="live-chat-toggle-btn" class="group relative flex items-center gap-3 py-2.5 px-4 rounded-full bg-[#0a0a0f]/95 border border-white/20 hover:border-white/40 shadow-[0_15px_35px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+      <!-- Glow ambient -->
+      <div class="absolute inset-0 rounded-full bg-gradient-to-r from-sky-500/10 via-white/5 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+      <!-- Duo Avatars -->
+      <div class="relative flex -space-x-2">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 border border-black flex items-center justify-center text-[10px] font-bold text-white">
+          И
+        </div>
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-zinc-200 to-zinc-400 border border-black flex items-center justify-center text-[10px] font-bold text-black">
+          М
+        </div>
+        <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-black animate-pulse"></span>
+      </div>
+
+      <!-- Label -->
+      <div class="flex flex-col text-left">
+        <span class="text-xs font-bold text-white group-hover:text-sky-300 transition-colors flex items-center gap-1.5">
+          <span>Имран & Мубин</span>
+          <i data-lucide="send" class="w-3 h-3 text-sky-400"></i>
+        </span>
+        <span class="text-[10px] font-mono text-emerald-400">Онлайн в Telegram</span>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- Lucide Icon Initializer -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Interactive Logic -->
+  <script src="script.js"></script>
+
+</body>
+</html>

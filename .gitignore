@@ -1,0 +1,6 @@
+.env
+config.json
+leads.json
+node_modules/
+.vercel
+*.log
